@@ -251,17 +251,19 @@ W pliku konfiguracyjnym MCP Twojego agenta (np. `mcp_config.json`, `claude_deskt
 
 ### Krok 3: Przykładowe zadania warsztatowe
 
+> 💡 **Gotowe prompty warsztatowe:** Kompletne szablony promptów (zarówno w wersji jednozdaniowej, jak i rozszerzonej technicznej) oraz gotowy System Prompt znajdziesz w katalogu [`prompty/`](./prompty/).
+
 Po sparowaniu klienta AI z Playgroundem możemy wydawać agentowi polecenia w języku naturalnym:
 
-1. **Audyt środowiska:**
+1. **Audyt środowiska:** ([`prompty/01-audyt-srodowiska.md`](./prompty/01-audyt-srodowiska.md))
    > _"Sprawdź jakie wtyczki i motywy są aktywne w tym WordPressie i wyświetl podstawowe informacje o konfiguracji bazy danych."_
-2. **Generowanie treści:**
+2. **Generowanie treści:** ([`prompty/02-generowanie-tresci.md`](./prompty/02-generowanie-tresci.md))
    > _"Stwórz nowy wpis na blogu pod tytułem 'Witaj WordCamp Wrocław 2026', dodaj do niego 3 akapity o przyszłości AI w WordPressie i oznacz kategorią 'Konferencje'."_
-3. **Modyfikacja kodu / Sandbox:**
+3. **Modyfikacja kodu / Sandbox:** ([`prompty/03-modyfikacja-kodu-sandbox.md`](./prompty/03-modyfikacja-kodu-sandbox.md))
    > _"Napisz mini-wtyczkę w katalogu novamira-sandbox, która dodaje powitanie w panelu administracyjnym i przetestuj jej działanie."_
-4. **Diagnostyka bazy:**
+4. **Diagnostyka bazy:** ([`prompty/04-diagnostyka-bazy-danych.md`](./prompty/04-diagnostyka-bazy-danych.md))
    > _"Wylistuj ostatnie 5 wpisów bezpośrednio z bazy danych za pomocą zapytania SQL przez mechanizm novamira."_
-5. **Tworzenie i walidacja layoutu z blokami WooCommerce:**
+5. **Tworzenie i walidacja layoutu z blokami WooCommerce:** ([`prompty/05-tworzenie-i-walidacja-layoutu.md`](./prompty/05-tworzenie-i-walidacja-layoutu.md))
    > _"Na podstawie dokumentacji w pliku dane/BLOCKS-REFERENCE.md wygeneruj stronę główną z sekcją Hero, dwoma kolumnami i kolekcją produktów WooCommerce, a następnie zweryfikuj jej poprawność za pomocą `npm run validate:layout` przed publikacją."_
 
 ---
