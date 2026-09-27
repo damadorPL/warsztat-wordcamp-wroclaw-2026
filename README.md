@@ -16,6 +16,9 @@ Kliknij poniższy przycisk, aby uruchomić w pełni funkcjonalny WordPress z wty
 
 [![Try it in Playground](https://raw.githubusercontent.com/WordPress/blueprints/trunk/playground-preview-button.svg)](https://playground.wordpress.net/#eyIkc2NoZW1hIjoiaHR0cHM6Ly9wbGF5Z3JvdW5kLndvcmRwcmVzcy5uZXQvYmx1ZXByaW50LXNjaGVtYS5qc29uIiwibWV0YSI6eyJ0aXRsZSI6IldvcmRQcmVzcyArIE5vdmFtaXJhIE1DUCBTZXJ2ZXIiLCJkZXNjcmlwdGlvbiI6IsWacm9kb3dpc2tvIFdvcmRQcmVzcyBQbGF5Z3JvdW5kIHogemFpbnN0YWxvd2FuxIUgd3R5Y3prxIUgTm92YW1pcmEgKHNlcndlciBNb2RlbCBDb250ZXh0IFByb3RvY29sKS4gVW1vxbxsaXdpYSBhZ2VudG9tIEFJIGJlenBvxZtyZWRuacSFIGludGVncmFjasSZIHogaW5zdGFuY2rEhSBXb3JkUHJlc3MuIiwiYXV0aG9yIjoiV29yZENhbXAgV3JvY8WCYXcgMjAyNiIsImNhdGVnb3JpZXMiOlsiQUkiLCJNQ1AiLCJEZXZlbG9wZXIgVG9vbHMiLCJXb3JkQ2FtcCJdfSwibGFuZGluZ1BhZ2UiOiIvd3AtYWRtaW4vYWRtaW4ucGhwP3BhZ2U9bm92YW1pcmEtY29ubmVjdCIsInByZWZlcnJlZFZlcnNpb25zIjp7InBocCI6IjguMyIsIndwIjoibGF0ZXN0In0sImZlYXR1cmVzIjp7Im5ldHdvcmtpbmciOnRydWV9LCJzaXRlT3B0aW9ucyI6eyJibG9nbmFtZSI6IldhcnN6dGF0IFdvcmRDYW1wIFdyb2PFgmF3IDIwMjYg4oCTIE5vdmFtaXJhIE1DUCJ9LCJsb2dpbiI6dHJ1ZSwic3RlcHMiOlt7InN0ZXAiOiJkZWZpbmVXcENvbmZpZ0NvbnN0cyIsImNvbnN0cyI6eyJXUF9FTlZJUk9OTUVOVF9UWVBFIjoibG9jYWwifX0seyJzdGVwIjoiaW5zdGFsbFBsdWdpbiIsInBsdWdpbkRhdGEiOnsicmVzb3VyY2UiOiJ1cmwiLCJ1cmwiOiJodHRwczovL2dpdGh1Yi5jb20vdXNlLW5vdmFtaXJhL25vdmFtaXJhL3JlbGVhc2VzL2Rvd25sb2FkL3YxLjEyLjUvbm92YW1pcmEtMS4xMi41LnppcCJ9LCJvcHRpb25zIjp7ImFjdGl2YXRlIjp0cnVlfX0seyJzdGVwIjoic2V0U2l0ZU9wdGlvbnMiLCJvcHRpb25zIjp7InBlcm1hbGlua19zdHJ1Y3R1cmUiOiIvJXBvc3RuYW1lJS8ifX0seyJzdGVwIjoicnVuUEhQIiwiY29kZSI6Ijw/cGhwIHJlcXVpcmUgJy93b3JkcHJlc3Mvd3AtbG9hZC5waHAnOyB1cGRhdGVfb3B0aW9uKCdub3ZhbWlyYV9haV9hYmlsaXRpZXNfZW5hYmxlZCcsICcxJyk7IHVwZGF0ZV9vcHRpb24oJ25vdmFtaXJhX2FpX2FiaWxpdGllc19kb21haW4nLCAoc3RyaW5nKSB3cF9wYXJzZV91cmwoaG9tZV91cmwoKSwgUEhQX1VSTF9IT1NUKSk7In1dfQ==)
 
+> [!TIP]
+> **Otwórz w nowej karcie:** Przytrzymaj **Ctrl** (lub **Cmd** na macOS) albo kliknij przycisk **środkowym przyciskiem myszy (kółkiem)**, aby WordPress Playground otworzył się w nowej karcie i nie zamykał tej instrukcji warsztatowej.
+
 > 🔗 **Bezpośredni link do uruchomienia:**  
 > [Uruchom Blueprint w przeglądarce](https://playground.wordpress.net/#eyIkc2NoZW1hIjoiaHR0cHM6Ly9wbGF5Z3JvdW5kLndvcmRwcmVzcy5uZXQvYmx1ZXByaW50LXNjaGVtYS5qc29uIiwibWV0YSI6eyJ0aXRsZSI6IldvcmRQcmVzcyArIE5vdmFtaXJhIE1DUCBTZXJ2ZXIiLCJkZXNjcmlwdGlvbiI6IsWacm9kb3dpc2tvIFdvcmRQcmVzcyBQbGF5Z3JvdW5kIHogemFpbnN0YWxvd2FuxIUgd3R5Y3prxIUgTm92YW1pcmEgKHNlcndlciBNb2RlbCBDb250ZXh0IFByb3RvY29sKS4gVW1vxbxsaXdpYSBhZ2VudG9tIEFJIGJlenBvxZtyZWRuacSFIGludGVncmFjasSZIHogaW5zdGFuY2rEhSBXb3JkUHJlc3MuIiwiYXV0aG9yIjoiV29yZENhbXAgV3JvY8WCYXcgMjAyNiIsImNhdGVnb3JpZXMiOlsiQUkiLCJNQ1AiLCJEZXZlbG9wZXIgVG9vbHMiLCJXb3JkQ2FtcCJdfSwibGFuZGluZ1BhZ2UiOiIvd3AtYWRtaW4vYWRtaW4ucGhwP3BhZ2U9bm92YW1pcmEtY29ubmVjdCIsInByZWZlcnJlZFZlcnNpb25zIjp7InBocCI6IjguMyIsIndwIjoibGF0ZXN0In0sImZlYXR1cmVzIjp7Im5ldHdvcmtpbmciOnRydWV9LCJzaXRlT3B0aW9ucyI6eyJibG9nbmFtZSI6IldhcnN6dGF0IFdvcmRDYW1wIFdyb2PFgmF3IDIwMjYg4oCTIE5vdmFtaXJhIE1DUCJ9LCJsb2dpbiI6dHJ1ZSwic3RlcHMiOlt7InN0ZXAiOiJkZWZpbmVXcENvbmZpZ0NvbnN0cyIsImNvbnN0cyI6eyJXUF9FTlZJUk9OTUVOVF9UWVBFIjoibG9jYWwifX0seyJzdGVwIjoiaW5zdGFsbFBsdWdpbiIsInBsdWdpbkRhdGEiOnsicmVzb3VyY2UiOiJ1cmwiLCJ1cmwiOiJodHRwczovL2dpdGh1Yi5jb20vdXNlLW5vdmFtaXJhL25vdmFtaXJhL3JlbGVhc2VzL2Rvd25sb2FkL3YxLjEyLjUvbm92YW1pcmEtMS4xMi41LnppcCJ9LCJvcHRpb25zIjp7ImFjdGl2YXRlIjp0cnVlfX0seyJzdGVwIjoic2V0U2l0ZU9wdGlvbnMiLCJvcHRpb25zIjp7InBlcm1hbGlua19zdHJ1Y3R1cmUiOiIvJXBvc3RuYW1lJS8ifX0seyJzdGVwIjoicnVuUEhQIiwiY29kZSI6Ijw/cGhwIHJlcXVpcmUgJy93b3JkcHJlc3Mvd3AtbG9hZC5waHAnOyB1cGRhdGVfb3B0aW9uKCdub3ZhbWlyYV9haV9hYmlsaXRpZXNfZW5hYmxlZCcsICcxJyk7IHVwZGF0ZV9vcHRpb24oJ25vdmFtaXJhX2FpX2FiaWxpdGllc19kb21haW4nLCAoc3RyaW5nKSB3cF9wYXJzZV91cmwoaG9tZV91cmwoKSwgUEhQX1VSTF9IT1NUKSk7In1dfQ==)
 
@@ -41,22 +44,24 @@ Ten projekt zawiera definicję **WordPress Playground Blueprint** ([`blueprint.j
 Do pracy ze środowiskiem warsztatowym na własnym komputerze (lokalny serwer Playground oraz integracja z agentami AI poprzez MCP) zalecane jest środowisko **Node.js** oraz pakiet **`@automattic/mcp-wordpress-remote`**.
 
 ### 1. Instalacja środowiska Node.js
+
 Wymagana wersja: **Node.js LTS (v20+ lub nowszy)**.
-* **Windows (PowerShell / winget):**
+
+- **Windows (PowerShell / winget):**
   ```powershell
   winget install OpenJS.NodeJS.LTS
   ```
-  *(lub pobierz instalator `.msi` z oficjalnej strony [nodejs.org](https://nodejs.org))*
-* **macOS (Homebrew):**
+  _(lub pobierz instalator `.msi` z oficjalnej strony [nodejs.org](https://nodejs.org))_
+- **macOS (Homebrew):**
   ```bash
   brew install node
   ```
-* **Linux (Ubuntu/Debian):**
+- **Linux (Ubuntu/Debian):**
   ```bash
   curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
   sudo apt-get install -y nodejs
   ```
-* **Weryfikacja instalacji:**
+- **Weryfikacja instalacji:**
   ```bash
   node -v   # np. v22.x lub v24.x
   npm -v    # np. 10.x lub 12.x
@@ -65,6 +70,7 @@ Wymagana wersja: **Node.js LTS (v20+ lub nowszy)**.
 ---
 
 ### 2. Instalacja zależności w tym katalogu (`package.json`)
+
 W tym repozytorium znajduje się skonfigurowany plik [`package.json`](./package.json). Aby zainstalować wszystkie wymagane pakiety lokalnie, przejdź do katalogu projektu i wykonaj:
 
 ```bash
@@ -72,32 +78,35 @@ npm install
 ```
 
 W katalogu `node_modules` zostaną zainstalowane:
-* **`@automattic/mcp-wordpress-remote`** – oficjalny serwer proxy MCP firmy Automattic (polecenie `mcp-wordpress-remote`), łączący klienty AI ze zdalnymi i lokalnymi instancjami WordPressa z wtyczką Novamira.
-* **`@wordpress/block-serialization-default-parser`** – oficjalny parser bloków Gutenberga używany przez silnik walidacji layoutu.
-* **`@wp-playground/cli`** – oficjalne narzędzie WP Playground CLI do uruchamiania WordPressa lokalnie w Node.js (WebAssembly) bez Dockera czy MySQL.
+
+- **`@automattic/mcp-wordpress-remote`** – oficjalny serwer proxy MCP firmy Automattic (polecenie `mcp-wordpress-remote`), łączący klienty AI ze zdalnymi i lokalnymi instancjami WordPressa z wtyczką Novamira.
+- **`@wordpress/block-serialization-default-parser`** – oficjalny parser bloków Gutenberga używany przez silnik walidacji layoutu.
+- **`@wp-playground/cli`** – oficjalne narzędzie WP Playground CLI do uruchamiania WordPressa lokalnie w Node.js (WebAssembly) bez Dockera czy MySQL.
 
 #### Dostępne skrypty npm:
-* `npm run start` (lub `npm run playground`) – uruchamia lokalny serwer WordPress Playground z naszym blueprintem na porcie `9400`:
+
+- `npm run start` (lub `npm run playground`) – uruchamia lokalny serwer WordPress Playground z naszym blueprintem na porcie `9400`:
   ```bash
   npm run start
   ```
-* `npm run test:blueprint` – uruchamia blueprint weryfikacyjnie w trybie headless:
+- `npm run test:blueprint` – uruchamia blueprint weryfikacyjnie w trybie headless:
   ```bash
   npm run test:blueprint
   ```
-* `npm run test:layout` – uruchamia walidator na przykładowym layoucie strony lądowania:
+- `npm run test:layout` – uruchamia walidator na przykładowym layoucie strony lądowania:
   ```bash
   npm run test:layout
   ```
-* `npm run validate:layout -- <plik>` – waliduje dowolny kod bloków lub plik HTML pod kątem poprawności składni i hierarchii:
+- `npm run validate:layout -- <plik>` – waliduje dowolny kod bloków lub plik HTML pod kątem poprawności składni i hierarchii:
   ```bash
   npm run validate:layout -- dane/przykladowy-layout.html
   ```
-* `npm run mcp` – uruchamia lokalne proxy MCP `mcp-wordpress-remote`.
+- `npm run mcp` – uruchamia lokalne proxy MCP `mcp-wordpress-remote`.
 
 ---
 
 ### 3. Instalacja globalna `mcp-wordpress-remote` (opcjonalnie)
+
 Możesz również zainstalować proxy globalnie w systemie, aby polecenie `mcp-wordpress-remote` było dostępne w dowolnej ścieżce:
 
 ```bash
@@ -170,14 +179,16 @@ Podczas generowania stron przez agentów AI najczęstszym problemem są **halucy
 W katalogu [`dane/`](./dane/) przygotowano kompletną bazę wiedzy i narzędzia walidacyjne oparte na oficjalnym kodzie źródłowym WordPressa i WooCommerce:
 
 ### 📁 Zasoby w katalogu `dane/`:
-* **[`dane/core-blocks.json`](./dane/core-blocks.json)** – pełne schematy **116 oficjalnych bloków WordPress Core** (typy, atrybuty, wspierane funkcje `supports`, reguły zagnieżdżania `parent`/`ancestor`, gotowe przykłady markup'u).
-* **[`dane/woocommerce-blocks.json`](./dane/woocommerce-blocks.json)** – schematy **174 bloków WooCommerce v11.1.2** (kolekcje produktów `product-collection`, szablony `product-template`, koszyk `cart`, kasa `checkout`, filtry).
-* **[`dane/blocks-reference.json`](./dane/blocks-reference.json)** – zunifikowany skorowidz z wyodrębnionymi zestawami bloków układu i e-commerce.
-* **[`dane/BLOCKS-REFERENCE.md`](./dane/BLOCKS-REFERENCE.md)** – kompendium wiedzy dla promptów systemowych agenta AI (reguły delimiterów, klasy CSS, layouty `constrained`/`flex`/`grid`, tokeny kolorów i odstępów, gotowe wzorce).
-* **[`dane/validate-layout.js`](./dane/validate-layout.js)** – silnik walidacji w Node.js wykorzystujący oficjalny parser `@wordpress/block-serialization-default-parser`.
-* **[`dane/przykladowy-layout.html`](./dane/przykladowy-layout.html)** – w 100% zweryfikowany szablon landing page łączący sekcję Hero, 3 kolumny korzyści oraz kolekcję produktów WooCommerce.
+
+- **[`dane/core-blocks.json`](./dane/core-blocks.json)** – pełne schematy **116 oficjalnych bloków WordPress Core** (typy, atrybuty, wspierane funkcje `supports`, reguły zagnieżdżania `parent`/`ancestor`, gotowe przykłady markup'u).
+- **[`dane/woocommerce-blocks.json`](./dane/woocommerce-blocks.json)** – schematy **174 bloków WooCommerce v11.1.2** (kolekcje produktów `product-collection`, szablony `product-template`, koszyk `cart`, kasa `checkout`, filtry).
+- **[`dane/blocks-reference.json`](./dane/blocks-reference.json)** – zunifikowany skorowidz z wyodrębnionymi zestawami bloków układu i e-commerce.
+- **[`dane/BLOCKS-REFERENCE.md`](./dane/BLOCKS-REFERENCE.md)** – kompendium wiedzy dla promptów systemowych agenta AI (reguły delimiterów, klasy CSS, layouty `constrained`/`flex`/`grid`, tokeny kolorów i odstępów, gotowe wzorce).
+- **[`dane/validate-layout.js`](./dane/validate-layout.js)** – silnik walidacji w Node.js wykorzystujący oficjalny parser `@wordpress/block-serialization-default-parser`.
+- **[`dane/przykladowy-layout.html`](./dane/przykladowy-layout.html)** – w 100% zweryfikowany szablon landing page łączący sekcję Hero, 3 kolumny korzyści oraz kolekcję produktów WooCommerce.
 
 ### 🧪 Jak uruchomić walidację layoutu:
+
 ```bash
 # 1. Przetestowanie przykładowego layoutu:
 npm run test:layout
@@ -190,6 +201,7 @@ node dane/validate-layout.js "<!-- wp:columns -->...<!-- /wp:columns -->"
 ```
 
 ### 🤖 Wykorzystanie przez Agenta AI w workflow:
+
 1. **Analiza schematu:** Agent odczytuje definicję bloku z `dane/core-blocks.json` lub `dane/woocommerce-blocks.json`.
 2. **Generowanie kodu:** Tworzy markup Gutenberga zgodnie z regułami opisanymi w `dane/BLOCKS-REFERENCE.md`.
 3. **Automatyczna weryfikacja:** Uruchamia `validate-layout.js` w celu eliminacji błędów hierarchii i atrybutów.
@@ -210,6 +222,7 @@ Uczestnicy klikają [link do Playgroundu](https://playground.wordpress.net/#eyIk
 Do połączenia agenta AI z WordPressem używamy serwera proxy **`mcp-wordpress-remote`** (z pakietu `@automattic/mcp-wordpress-remote`).
 
 #### Opcja A: Zainstalowana komenda `mcp-wordpress-remote`
+
 W pliku konfiguracyjnym MCP Twojego agenta (np. `mcp_config.json`, `claude_desktop_config.json` lub Cursor/Windsurf):
 
 ```json
@@ -235,10 +248,7 @@ W pliku konfiguracyjnym MCP Twojego agenta (np. `mcp_config.json`, `claude_deskt
   "mcpServers": {
     "novamira-playground": {
       "command": "npx",
-      "args": [
-        "-y",
-        "@automattic/mcp-wordpress-remote"
-      ],
+      "args": ["-y", "@automattic/mcp-wordpress-remote"],
       "env": {
         "WP_API_URL": "http://127.0.0.1:9400/wp-json/mcp/novamira",
         "WP_API_USERNAME": "admin",
