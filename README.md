@@ -259,6 +259,9 @@ W pliku konfiguracyjnym MCP Twojego agenta (np. `mcp_config.json`, `claude_deskt
 }
 ```
 
+> 📖 **Kompletne instrukcje i szablony konfiguracji dla wszystkich środowisk AI:**  
+> Szczegółowe przewodniki konfiguracji MCP w edytorach (Cursor, Windsurf, VS Code, Zed), aplikacjach desktopowych (Claude Desktop, Goose, LibreChat, LM Studio) oraz frameworkach (Claude Code CLI, LangGraph/LangChain, CrewAI, AutoGen, OpenHands) wraz z gotowymi plikami do skopiowania znajdziesz w dedykowanym katalogu **[`konfiguracja/`](./konfiguracja/)**.
+
 ### Krok 3: Przykładowe zadania warsztatowe
 
 > 💡 **Gotowe prompty warsztatowe:** Kompletne szablony promptów (zarówno w wersji jednozdaniowej, jak i rozszerzonej technicznej) oraz gotowy System Prompt znajdziesz w katalogu [`prompty/`](./prompty/).

@@ -1,0 +1,27 @@
+# Konfiguracja Goose dla warsztatu WordCamp Wrocław 2026
+# Lokalizacja: ~/.config/goose/config.yaml lub %APPDATA%\Block\goose\config\config.yaml
+GOOSE_PROVIDER: anthropic
+GOOSE_MODEL: claude-3-7-sonnet-latest
+
+extensions:
+  novamira-playground:
+    type: stdio
+    command: npx
+    args:
+      - -y
+      - "@automattic/mcp-wordpress-remote"
+    env:
+      WP_API_URL: "http://127.0.0.1:9400/wp-json/mcp/novamira"
+      WP_API_USERNAME: "admin"
+      WP_API_PASSWORD: "<TWOJE_HASLO_APLIKACJI>"
+    enabled: true
+    timeout: 300
+
+  filesystem:
+    type: stdio
+    command: npx
+    args:
+      - -y
+      - "@modelcontextprotocol/server-filesystem"
+      - "."
+    enabled: true
