@@ -73,6 +73,7 @@ npm install
 
 W katalogu `node_modules` zostaną zainstalowane:
 * **`@automattic/mcp-wordpress-remote`** – oficjalny serwer proxy MCP firmy Automattic (polecenie `mcp-wordpress-remote`), łączący klienty AI ze zdalnymi i lokalnymi instancjami WordPressa z wtyczką Novamira.
+* **`@wordpress/block-serialization-default-parser`** – oficjalny parser bloków Gutenberga używany przez silnik walidacji layoutu.
 * **`@wp-playground/cli`** – oficjalne narzędzie WP Playground CLI do uruchamiania WordPressa lokalnie w Node.js (WebAssembly) bez Dockera czy MySQL.
 
 #### Dostępne skrypty npm:
@@ -83,6 +84,14 @@ W katalogu `node_modules` zostaną zainstalowane:
 * `npm run test:blueprint` – uruchamia blueprint weryfikacyjnie w trybie headless:
   ```bash
   npm run test:blueprint
+  ```
+* `npm run test:layout` – uruchamia walidator na przykładowym layoucie strony lądowania:
+  ```bash
+  npm run test:layout
+  ```
+* `npm run validate:layout -- <plik>` – waliduje dowolny kod bloków lub plik HTML pod kątem poprawności składni i hierarchii:
+  ```bash
+  npm run validate:layout -- dane/przykladowy-layout.html
   ```
 * `npm run mcp` – uruchamia lokalne proxy MCP `mcp-wordpress-remote`.
 
@@ -154,6 +163,40 @@ npm run test:blueprint
 
 ---
 
+## 🧱 Baza referencyjna bloków i walidacja layoutu (WordPress Core & WooCommerce)
+
+Podczas generowania stron przez agentów AI najczęstszym problemem są **halucynacje znaczników blokowych Gutenberga** (niepoprawne nazwy atrybutów, błędna hierarchia zagnieżdżania lub wstawianie statycznego HTML do bloków dynamicznych). W edytorze WordPress skutkuje to żółtym ostrzeżeniem **„Ten blok zawiera nieprawidłową lub nieobsługiwaną treść” (Attempt Block Recovery)**.
+
+W katalogu [`dane/`](./dane/) przygotowano kompletną bazę wiedzy i narzędzia walidacyjne oparte na oficjalnym kodzie źródłowym WordPressa i WooCommerce:
+
+### 📁 Zasoby w katalogu `dane/`:
+* **[`dane/core-blocks.json`](./dane/core-blocks.json)** – pełne schematy **116 oficjalnych bloków WordPress Core** (typy, atrybuty, wspierane funkcje `supports`, reguły zagnieżdżania `parent`/`ancestor`, gotowe przykłady markup'u).
+* **[`dane/woocommerce-blocks.json`](./dane/woocommerce-blocks.json)** – schematy **174 bloków WooCommerce v11.1.2** (kolekcje produktów `product-collection`, szablony `product-template`, koszyk `cart`, kasa `checkout`, filtry).
+* **[`dane/blocks-reference.json`](./dane/blocks-reference.json)** – zunifikowany skorowidz z wyodrębnionymi zestawami bloków układu i e-commerce.
+* **[`dane/BLOCKS-REFERENCE.md`](./dane/BLOCKS-REFERENCE.md)** – kompendium wiedzy dla promptów systemowych agenta AI (reguły delimiterów, klasy CSS, layouty `constrained`/`flex`/`grid`, tokeny kolorów i odstępów, gotowe wzorce).
+* **[`dane/validate-layout.js`](./dane/validate-layout.js)** – silnik walidacji w Node.js wykorzystujący oficjalny parser `@wordpress/block-serialization-default-parser`.
+* **[`dane/przykladowy-layout.html`](./dane/przykladowy-layout.html)** – w 100% zweryfikowany szablon landing page łączący sekcję Hero, 3 kolumny korzyści oraz kolekcję produktów WooCommerce.
+
+### 🧪 Jak uruchomić walidację layoutu:
+```bash
+# 1. Przetestowanie przykładowego layoutu:
+npm run test:layout
+
+# 2. Walidacja dowolnego pliku HTML z blokami:
+npm run validate:layout -- dane/przykladowy-layout.html
+
+# 3. Walidacja bezpośrednio z przekazanego ciągu znaków:
+node dane/validate-layout.js "<!-- wp:columns -->...<!-- /wp:columns -->"
+```
+
+### 🤖 Wykorzystanie przez Agenta AI w workflow:
+1. **Analiza schematu:** Agent odczytuje definicję bloku z `dane/core-blocks.json` lub `dane/woocommerce-blocks.json`.
+2. **Generowanie kodu:** Tworzy markup Gutenberga zgodnie z regułami opisanymi w `dane/BLOCKS-REFERENCE.md`.
+3. **Automatyczna weryfikacja:** Uruchamia `validate-layout.js` w celu eliminacji błędów hierarchii i atrybutów.
+4. **Publikacja:** Bezpiecznie publikuje wpis/stronę w WordPressie za pośrednictwem serwera Novamira MCP lub REST API.
+
+---
+
 ## 🎓 Scenariusz warsztatowy – WordCamp Wrocław 2026
 
 Podczas warsztatu przechodzimy przez następujące etapy:
@@ -218,6 +261,8 @@ Po sparowaniu klienta AI z Playgroundem możemy wydawać agentowi polecenia w j�
    > _"Napisz mini-wtyczkę w katalogu novamira-sandbox, która dodaje powitanie w panelu administracyjnym i przetestuj jej działanie."_
 4. **Diagnostyka bazy:**
    > _"Wylistuj ostatnie 5 wpisów bezpośrednio z bazy danych za pomocą zapytania SQL przez mechanizm novamira."_
+5. **Tworzenie i walidacja layoutu z blokami WooCommerce:**
+   > _"Na podstawie dokumentacji w pliku dane/BLOCKS-REFERENCE.md wygeneruj stronę główną z sekcją Hero, dwoma kolumnami i kolekcją produktów WooCommerce, a następnie zweryfikuj jej poprawność za pomocą `npm run validate:layout` przed publikacją."_
 
 ---
 

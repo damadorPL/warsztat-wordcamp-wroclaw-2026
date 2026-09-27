@@ -7,6 +7,8 @@
     "start": "wp-playground server --blueprint=blueprint.json --port=9400",
     "playground": "wp-playground server --blueprint=blueprint.json --port=9400",
     "test:blueprint": "wp-playground run-blueprint --blueprint=blueprint.json",
+    "validate:layout": "node dane/validate-layout.js",
+    "test:layout": "node dane/validate-layout.js dane/przykladowy-layout.html",
     "mcp": "mcp-wordpress-remote"
   },
   "keywords": [
@@ -22,7 +24,8 @@
   "author": "Krzysztof Radzikowski",
   "license": "MIT",
   "dependencies": {
-    "@automattic/mcp-wordpress-remote": "^0.4.0"
+    "@automattic/mcp-wordpress-remote": "^0.4.0",
+    "@wordpress/block-serialization-default-parser": "^5.56.0"
   },
   "devDependencies": {
     "@wp-playground/cli": "^3.1.55"
