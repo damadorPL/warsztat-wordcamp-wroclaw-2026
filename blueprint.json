@@ -1,0 +1,54 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "meta": {
+    "title": "WordPress + Novamira MCP Server",
+    "description": "Środowisko WordPress Playground z zainstalowaną wtyczką Novamira (serwer Model Context Protocol). Umożliwia agentom AI bezpośrednią integrację z instancją WordPress.",
+    "author": "Krzysztof Radzikowski / WordCamp Wrocław 2026",
+    "categories": [
+      "AI",
+      "MCP",
+      "Developer Tools",
+      "WordCamp"
+    ]
+  },
+  "landingPage": "/wp-admin/admin.php?page=novamira-connect",
+  "preferredVersions": {
+    "php": "8.3",
+    "wp": "latest"
+  },
+  "features": {
+    "networking": true
+  },
+  "siteOptions": {
+    "blogname": "Warsztat WordCamp Wrocław 2026 – Novamira MCP"
+  },
+  "login": true,
+  "steps": [
+    {
+      "step": "defineWpConfigConsts",
+      "consts": {
+        "WP_ENVIRONMENT_TYPE": "local"
+      }
+    },
+    {
+      "step": "installPlugin",
+      "pluginData": {
+        "resource": "url",
+        "url": "https://github.com/use-novamira/novamira/releases/download/v1.12.5/novamira-1.12.5.zip"
+      },
+      "options": {
+        "activate": true
+      }
+    },
+    {
+      "step": "setSiteOptions",
+      "options": {
+        "permalink_structure": "/%postname%/"
+      }
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require '/wordpress/wp-load.php'; update_option('novamira_ai_abilities_enabled', '1'); update_option('novamira_ai_abilities_domain', (string) wp_parse_url(home_url(), PHP_URL_HOST));"
+    }
+  ]
+}
