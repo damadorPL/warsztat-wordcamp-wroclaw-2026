@@ -288,6 +288,7 @@ Po sparowaniu klienta AI z Playgroundem możemy wydawać agentowi polecenia w j�
 
 ## 📚 Przydatne źródła
 
-- [Repozytorium wtyczki Novamira na GitHubie](https://github.com/use-novamira/novamira)
-- [Dokumentacja oficjalna Novamira.ai](https://novamira.ai)
-- [Oficjalna strona WordCamp Wrocław 2026](https://wroclaw.wordcamp.org/)
+- [Repozytorium wtyczki Novamira na GitHubie](https://github.com/use-novamira/novamira) – wtyczka serwera MCP dla WordPressa.
+- [Dokumentacja oficjalna Novamira.ai](https://novamira.ai) – oficjalna dokumentacja projektu Novamira.
+- [wp-blockmarkup-mcp (Pluginslab)](https://github.com/pluginslab/wp-blockmarkup-mcp) – dedykowany serwer MCP udostępniający agentom AI bazę schematów bloków Gutenberga (Core i WooCommerce) oraz poprawny markup, zapobiegając halucynacjom atrybutów i błędom walidacji.
+- [Oficjalna strona WordCamp Wrocław 2026](https://wroclaw.wordcamp.org/) – strona konferencji.
