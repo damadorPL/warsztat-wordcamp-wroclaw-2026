@@ -1,7 +1,7 @@
 # Warsztat WordCamp Wrocław 2026 – WordPress Playground + Novamira (MCP Server)
 
 [![WordPress Playground](https://img.shields.io/badge/WordPress-Playground-3858e9?logo=wordpress&logoColor=white)](https://developer.wordpress.org/playground/)
-[![Novamira MCP](https://img.shields.io/badge/Plugin-Novamira_v1.12.5-blue?logo=anthropic)](https://github.com/use-novamira/novamira)
+[![Novamira MCP](https://img.shields.io/badge/Plugin-Novamira_v1.12.6-blue?logo=anthropic)](https://github.com/use-novamira/novamira)
 [![PHP 8.3](https://img.shields.io/badge/PHP-8.3-777bb4?logo=php&logoColor=white)](https://www.php.net/)
 [![WordPress Latest](https://img.shields.io/badge/WordPress-Latest-21759b?logo=wordpress)](https://wordpress.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
