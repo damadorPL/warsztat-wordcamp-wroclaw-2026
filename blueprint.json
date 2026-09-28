@@ -34,7 +34,7 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://github.com/use-novamira/novamira/releases/download/v1.12.5/novamira-1.12.5.zip"
+        "url": "https://github.com/use-novamira/novamira/releases/download/v1.12.6/novamira-1.12.6.zip"
       },
       "options": {
         "activate": true
