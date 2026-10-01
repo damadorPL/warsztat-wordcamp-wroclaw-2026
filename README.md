@@ -259,36 +259,26 @@ Po załadowaniu środowiska przejdź do panelu **Novamira → Connect**:
 
 ### Krok 2: Konfiguracja połączenia w agencie AI
 
-Do połączenia agenta AI z WordPressem używamy serwera proxy **`mcp-wordpress-remote`** (z pakietu `@automattic/mcp-wordpress-remote`).
+Do połączenia agenta AI z WordPressem używamy serwera proxy **`mcp-wordpress-remote`** (z oficjalnego pakietu `@automattic/mcp-wordpress-remote`).
 
-#### Opcja A: Zainstalowana komenda `mcp-wordpress-remote`
+#### ⚡ Rola gotowego pliku `mcp.json` w głównym katalogu projektu
 
-W pliku konfiguracyjnym MCP Twojego agenta (np. `mcp_config.json`, `claude_desktop_config.json` lub Cursor/Windsurf):
+W katalogu głównym repozytorium znajduje się plik [`mcp.json`](./mcp.json), który pełni dwie kluczowe role:
 
-```json
-{
-  "mcpServers": {
-    "novamira-playground": {
-      "command": "mcp-wordpress-remote",
-      "args": [],
-      "env": {
-        "WP_API_URL": "http://127.0.0.1:9400/wp-json/mcp/novamira",
-        "WP_API_USERNAME": "admin",
-        "WP_API_PASSWORD": "novamira-secret-pass-2026"
-      }
-    }
-  }
-}
-```
-
-#### Opcja B: Wywołanie przez `npx` (bez instalacji globalnej)
+1. **Automatyczne ładowanie per-projekt (Project-Level MCP):**  
+   Narzędzia wspierające standard lokalnej konfiguracji MCP projektu (m.in. **Claude Code CLI**, a także projekty otwierane w narzędziach zgodnych ze specyfikacją MCP) automatycznie wykrywają i wczytują serwer `novamira-playground` bezpośrednio z tego pliku po otwarciu repozytorium. Nie ma potrzeby ręcznego wprowadzania konfiguracji w ustawieniach globalnych!
+2. **Gotowy szablon Zero-Configuration do skopiowania:**  
+   Zawiera już wszystkie uzupełnione parametry tego warsztatu – gotowy do skopiowania do globalnych plików konfiguracyjnych (np. w Cursor, Windsurf, Claude Desktop, VS Code):
 
 ```json
 {
   "mcpServers": {
     "novamira-playground": {
       "command": "npx",
-      "args": ["-y", "@automattic/mcp-wordpress-remote"],
+      "args": [
+        "-y",
+        "@automattic/mcp-wordpress-remote@latest"
+      ],
       "env": {
         "WP_API_URL": "http://127.0.0.1:9400/wp-json/mcp/novamira",
         "WP_API_USERNAME": "admin",
@@ -298,6 +288,11 @@ W pliku konfiguracyjnym MCP Twojego agenta (np. `mcp_config.json`, `claude_deskt
   }
 }
 ```
+
+Jeśli Twoje narzędzie AI wymaga wpisu w pliku globalnym (np. `%APPDATA%\Claude\claude_desktop_config.json` lub `.cursor/mcp.json`), możesz skorzystać z powyższej definicji lub wybrać wariant:
+
+- **Wywołanie przez `npx` (zalecane):** `"command": "npx"`, `"args": ["-y", "@automattic/mcp-wordpress-remote@latest"]` – nie wymaga wcześniejszej globalnej instalacji.
+- **Wywołanie globalne:** `"command": "mcp-wordpress-remote"`, `"args": []` – jeśli pakiet zainstalowano globalnie poleceniem `npm install -g @automattic/mcp-wordpress-remote`.
 
 > 📖 **Kompletne instrukcje i szablony konfiguracji dla wszystkich środowisk AI:**  
 > Szczegółowe przewodniki konfiguracji MCP w edytorach (Cursor, Windsurf, VS Code, Zed), aplikacjach desktopowych (Claude Desktop, Goose, LibreChat, LM Studio) oraz frameworkach (Claude Code CLI, LangChain, LangGraph, Aider i wiele innych) znajdziesz w katalogu [`konfiguracja/`](./konfiguracja/README.md).
