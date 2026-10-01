@@ -1,7 +1,7 @@
 # Warsztat WordCamp Wrocław 2026 – WordPress Playground + Novamira (MCP Server)
 
 [![WordPress Playground](https://img.shields.io/badge/WordPress-Playground-3858e9?logo=wordpress&logoColor=white)](https://developer.wordpress.org/playground/)
-[![Novamira MCP](https://img.shields.io/badge/Plugin-Novamira_v1.12.6-blue?logo=anthropic)](https://github.com/use-novamira/novamira)
+[![Novamira MCP](https://img.shields.io/badge/Plugin-Novamira_v1.12.7-blue?logo=anthropic)](https://github.com/use-novamira/novamira)
 [![WooCommerce Latest](https://img.shields.io/badge/WooCommerce-Latest-96588a?logo=woocommerce&logoColor=white)](https://woocommerce.com/)
 [![PHP 8.3](https://img.shields.io/badge/PHP-8.3-777bb4?logo=php&logoColor=white)](https://www.php.net/)
 [![WordPress Latest](https://img.shields.io/badge/WordPress-Latest-21759b?logo=wordpress)](https://wordpress.org/)
@@ -32,20 +32,6 @@ npx -y @wp-playground/cli server --blueprint="https://raw.githubusercontent.com/
 > | **Hasło logowania** | `admin` | Hasło logowania w formularzu wp-login.php |
 > | **Hasło Aplikacji dla MCP** | `novamira-secret-pass-2026` | Hasło autoryzacji agenta AI (`WP_API_PASSWORD`) |
 > | **REST API / MCP Endpoint** | `http://127.0.0.1:9400/wp-json/mcp/novamira` | Punkt końcowy API dla proxy MCP (`WP_API_URL`) |
-
----
-
-## ⚡ Szybki start (One-Click Launch)
-
-Kliknij poniższy przycisk, aby uruchomić w pełni funkcjonalny WordPress z wtyczką Novamira oraz sklepem WooCommerce bezpośrednio w Twojej przeglądarce (WebAssembly – bez instalacji serwerów, Dockera czy MySQL):
-
-[![Try it in Playground](https://raw.githubusercontent.com/WordPress/blueprints/trunk/playground-preview-button.svg)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/damadorPL/warsztat-wordcamp-wroclaw-2026/main/blueprint.json)
-
-> [!TIP]
-> **Otwórz w nowej karcie:** Przytrzymaj **Ctrl** (lub **Cmd** na macOS) albo kliknij przycisk **środkowym przyciskiem myszy (kółkiem)**, aby WordPress Playground otworzył się w nowej karcie i nie zamykał tej instrukcji warsztatowej.
-
-> 🔗 **Bezpośredni link do uruchomienia:**  
-> [Uruchom Blueprint w przeglądarce](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/damadorPL/warsztat-wordcamp-wroclaw-2026/main/blueprint.json)
 
 ---
 
@@ -148,6 +134,11 @@ npm install -g @automattic/mcp-wordpress-remote
 
 Możesz uruchomić środowisko warsztatowe na kilka sposobów, w zależności od preferencji i narzędzi:
 
+> [!IMPORTANT]
+> **Wymóg uruchomienia z CLI (Serwer MCP nie działa w przeglądarce WebAssembly):**  
+> Serwer **Novamira MCP** oraz proxy `mcp-wordpress-remote` wymagają lokalnego połączenia sieciowego HTTP/REST API (`http://127.0.0.1:9400`). WordPress Playground uruchomiony bezpośrednio w przeglądarce (WebAssembly) działa w izolowanym środowisku sandbox przeglądarki i **nie udostępnia portu TCP na komputerze**, w wyniku czego agenci i narzędzia AI (np. Claude Desktop, Cursor, Windsurf, VS Code, Goose) nie mają możliwości nawiązania z nim połączenia.  
+> **Dlatego do poprawnego działania serwera MCP na komputerze wymagane jest uruchomienie Playgroundu lokalnie z poziomu CLI (Sposób 1 lub Sposób 2).**
+
 ### 🔑 Zestawienie danych dostępowych (dla wszystkich metod serwerowych)
 
 Po uruchomieniu środowiska lokalnego WordPress oraz serwer Novamira MCP są wstępnie skonfigurowane z poniższymi parametrami:
@@ -174,7 +165,7 @@ npx -y @wp-playground/cli server --blueprint="https://raw.githubusercontent.com/
 
 - Pobiera najświeższy plik `blueprint.json` bezpośrednio z gałęzi `main` repozytorium na GitHubie.
 - Uruchamia serwer WordPress Playground na porcie `9400`.
-- Automatycznie instaluje wtyczkę **Novamira MCP**, konfiguruje sklep **WooCommerce** z przykładowymi produktami oraz tworzy konto `admin` z hasłem aplikacji `novamira-secret-pass-2026`.
+- Automatycznie instaluje wtyczkę **Novamira MCP v1.12.7**, konfiguruje sklep **WooCommerce** z przykładowymi produktami oraz tworzy konto `admin` z hasłem aplikacji `novamira-secret-pass-2026`.
 
 ---
 
@@ -203,23 +194,7 @@ Gdy sklonowałeś to repozytorium i zainstalowałeś zależności (`npm install`
 
 ---
 
-### Sposób 3: Bezpośrednio w przeglądarce (WordPress Playground WebAssembly)
-
-Możesz uruchomić instancję WordPress bezpośrednio w przeglądarce za pośrednictwem oficjalnego Playgroundu:
-
-👉 **[Uruchom WordPress + Novamira + WooCommerce w przeglądarce](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/damadorPL/warsztat-wordcamp-wroclaw-2026/main/blueprint.json)**
-
-Bezpośredni adres URL:
-```text
-https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/damadorPL/warsztat-wordcamp-wroclaw-2026/main/blueprint.json
-```
-
-> [!NOTE]
-> Instancja w przeglądarce działa całkowicie w piaskownicy WebAssembly (Wasm). Aby połączyć z nią zewnętrznych lokalnych agentów AI (np. Claude Desktop, Cursor, VS Code, Zed), zalecane jest uruchomienie serwera lokalnego na porcie `9400` (**Sposób 1** lub **Sposób 2**), dzięki czemu proxy `mcp-wordpress-remote` może komunikować się przez `http://127.0.0.1:9400`.
-
----
-
-### Sposób 4: W aplikacji WordPress Studio (Automattic)
+### Sposób 3: W aplikacji WordPress Studio (Automattic)
 
 1. Pobierz lub otwórz [WordPress Studio](https://developer.wordpress.com/studio/).
 2. Utwórz nową witrynę lub wybierz opcję importu Blueprintu.
@@ -269,9 +244,12 @@ node dane/validate-layout.js "<!-- wp:columns -->...<!-- /wp:columns -->"
 
 Podczas warsztatu przechodzimy przez następujące etapy:
 
-### Krok 1: Otwarcie Playgroundu
+### Krok 1: Uruchomienie lokalnego serwera Playground (CLI)
 
-Uczestnicy uruchamiają serwer lokalnie za pomocą polecenia `npm run start` (lub One-Linera `npx`), ewentualnie otwierają [link do Playgroundu w przeglądarce](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/damadorPL/warsztat-wordcamp-wroclaw-2026/main/blueprint.json).
+Uczestnicy uruchamiają serwer lokalnie za pomocą polecenia `npm run start` (lub One-Linera `npx`).
+
+> [!IMPORTANT]
+> Do komunikacji z agentami AI poprzez MCP wymagane jest uruchomienie serwera lokalnie w terminalu (CLI). Instancja uruchomiona bezpośrednio w przeglądarce (WebAssembly) nie udostępnia portu TCP dla proxy MCP.
 
 Po załadowaniu środowiska przejdź do panelu **Novamira → Connect**:
 - **Adres URL:** `http://127.0.0.1:9400/wp-admin/admin.php?page=novamira-connect`
