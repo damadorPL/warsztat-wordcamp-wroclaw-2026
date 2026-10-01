@@ -20,10 +20,18 @@ npx -y @wp-playground/cli server --blueprint="https://raw.githubusercontent.com/
 ```
 
 > [!TIP]
-> **Pełna automatyzacja (Zero Configuration):**  
-> Polecenie pobierze najświeższy blueprint bezpośrednio z GitHuba, uruchomi WordPress Playground z serwerem **Novamira MCP**, sklepem **WooCommerce** i automatycznie skonfiguruje hasło aplikacji dla użytkownika `admin`:  
-> `novamira-secret-pass-2026`  
-> Środowisko jest natychmiast dostępne pod adresem: **`http://127.0.0.1:9400`**.
+> **Pełna automatyzacja i dane dostępowe (Zero Configuration):**  
+> Polecenie pobierze najświeższy blueprint bezpośrednio z GitHuba, uruchomi WordPress Playground z serwerem **Novamira MCP**, sklepem **WooCommerce** i automatycznie skonfiguruje konto administratora oraz hasło aplikacji:
+> 
+> | Parametr | Wartość | Zastosowanie |
+> | :--- | :--- | :--- |
+> | **Adres sklepu** | `http://127.0.0.1:9400` | Strona główna WordPress + WooCommerce |
+> | **Kokpit WordPress** | `http://127.0.0.1:9400/wp-admin/` | Panel logowania i administracji |
+> | **Panel Novamira MCP** | `http://127.0.0.1:9400/wp-admin/admin.php?page=novamira-connect` | Diagnostyka i status wtyczki MCP |
+> | **Login** | `admin` | Nazwa konta administratora |
+> | **Hasło logowania** | `admin` | Hasło logowania w formularzu wp-login.php |
+> | **Hasło Aplikacji dla MCP** | `novamira-secret-pass-2026` | Hasło autoryzacji agenta AI (`WP_API_PASSWORD`) |
+> | **REST API / MCP Endpoint** | `http://127.0.0.1:9400/wp-json/mcp/novamira` | Punkt końcowy API dla proxy MCP (`WP_API_URL`) |
 
 ---
 
@@ -138,62 +146,80 @@ npm install -g @automattic/mcp-wordpress-remote
 
 ## 🛠️ Sposoby uruchomienia Blueprintu
 
-### 1. Bezpośrednio w przeglądarce (WordPress Playground)
+Możesz uruchomić środowisko warsztatowe na kilka sposobów, w zależności od preferencji i narzędzi:
 
-Wystarczy wejść pod link:
-👉 **[Uruchom WordPress + Novamira + WooCommerce (z repozytorium GitHub)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/damadorPL/warsztat-wordcamp-wroclaw-2026/main/blueprint.json)**
+### 🔑 Zestawienie danych dostępowych (dla wszystkich metod serwerowych)
 
-Alternatywnie (bezpośrednio z zakodowanego hasha):
-👉 **[Uruchom przez Data Hash](https://playground.wordpress.net/#eyIkc2NoZW1hIjoiaHR0cHM6Ly9wbGF5Z3JvdW5kLndvcmRwcmVzcy5uZXQvYmx1ZXByaW50LXNjaGVtYS5qc29uIiwibWV0YSI6eyJ0aXRsZSI6IldvcmRQcmVzcyArIE5vdmFtaXJhIE1DUCBTZXJ2ZXIgKyBXb29Db21tZXJjZSIsImRlc2NyaXB0aW9uIjoixZpyb2Rvd2lza28gV29yZFByZXNzIFBsYXlncm91bmQgeiB6YWluc3RhbG93YW7EhSB3dHljemvEhSBOb3ZhbWlyYSAoc2Vyd2VyIE1vZGVsIENvbnRleHQgUHJvdG9jb2wpIG9yYXogV29vQ29tbWVyY2UgeiBwcnp5a8WCYWRvd3ltaSBwcm9kdWt0YW1pLiBVbW/FvGxpd2lhIGFnZW50b20gQUkgYmV6cG/Fm3JlZG5pxIUgaW50ZWdyYWNqxJkgemUgc2tsZXBlbSBpIGVrb3N5c3RlbWVtIFdvcmRQcmVzcy4iLCJhdXRob3IiOiJLcnp5c3p0b2YgUmFkemlrb3dza2kgLyBXb3JkQ2FtcCBXcm9jxYJhdyAyMDI2IiwiY2F0ZWdvcmllcyI6WyJBSSIsIk1DUCIsIldvb0NvbW1lcmNlIiwiRS1Db21tZXJjZSIsIkRldmVsb3BlciBUb29scyIsIldvcmRDYW1wIl19LCJsYW5kaW5nUGFnZSI6Ii93cC1hZG1pbi9hZG1pbi5waHA/cGFnZT1ub3ZhbWlyYS1jb25uZWN0IiwicHJlZmVycmVkVmVyc2lvbnMiOnsicGhwIjoiOC4zIiwid3AiOiJsYXRlc3QifSwiZmVhdHVyZXMiOnsibmV0d29ya2luZyI6dHJ1ZX0sInNpdGVPcHRpb25zIjp7ImJsb2duYW1lIjoiV2Fyc3p0YXQgV29yZENhbXAgV3JvY8WCYXcgMjAyNiDigJMgTm92YW1pcmEgTUNQICYgV29vQ29tbWVyY2UifSwibG9naW4iOnRydWUsInN0ZXBzIjpbeyJzdGVwIjoiZGVmaW5lV3BDb25maWdDb25zdHMiLCJjb25zdHMiOnsiV1BfRU5WSVJPTk1FTlRfVFlQRSI6ImxvY2FsIn19LHsic3RlcCI6Imluc3RhbGxQbHVnaW4iLCJwbHVnaW5EYXRhIjp7InJlc291cmNlIjoidXJsIiwidXJsIjoiaHR0cHM6Ly9naXRodWIuY29tL3VzZS1ub3ZhbWlyYS9ub3ZhbWlyYS9yZWxlYXNlcy9kb3dubG9hZC92MS4xMi42L25vdmFtaXJhLTEuMTIuNi56aXAifSwib3B0aW9ucyI6eyJhY3RpdmF0ZSI6dHJ1ZX19LHsic3RlcCI6Imluc3RhbGxQbHVnaW4iLCJwbHVnaW5EYXRhIjp7InJlc291cmNlIjoid29yZHByZXNzLm9yZy9wbHVnaW5zIiwic2x1ZyI6Indvb2NvbW1lcmNlIn0sIm9wdGlvbnMiOnsiYWN0aXZhdGUiOnRydWV9fSx7InN0ZXAiOiJzZXRTaXRlT3B0aW9ucyIsIm9wdGlvbnMiOnsicGVybWFsaW5rX3N0cnVjdHVyZSI6Ii8lcG9zdG5hbWUlLyJ9fSx7InN0ZXAiOiJ1bnppcCIsInppcEZpbGUiOnsicmVzb3VyY2UiOiJ1cmwiLCJ1cmwiOiJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGFtYWRvclBML3dhcnN6dGF0LXdvcmRjYW1wLXdyb2NsYXctMjAyNi9tYWluL2RhbmUvc2FtcGxlLWRhdGEvc2FtcGxlLW1lZGlhLnppcCJ9LCJleHRyYWN0VG9QYXRoIjoiL3dvcmRwcmVzcy93cC1jb250ZW50L3VwbG9hZHMifSx7InN0ZXAiOiJpbXBvcnRXeHIiLCJmaWxlIjp7InJlc291cmNlIjoidmZzIiwicGF0aCI6Ii93b3JkcHJlc3Mvd3AtY29udGVudC9wbHVnaW5zL3dvb2NvbW1lcmNlL3NhbXBsZS1kYXRhL3NhbXBsZV9wcm9kdWN0cy54bWwifSwiZmV0Y2hBdHRhY2htZW50cyI6ZmFsc2V9LHsic3RlcCI6InJ1blBIUCIsImNvZGUiOiI8P3BocCByZXF1aXJlICcvd29yZHByZXNzL3dwLWxvYWQucGhwJzsgdXBkYXRlX29wdGlvbignbm92YW1pcmFfYWlfYWJpbGl0aWVzX2VuYWJsZWQnLCAnMScpOyB1cGRhdGVfb3B0aW9uKCdub3ZhbWlyYV9haV9hYmlsaXRpZXNfZG9tYWluJywgKHN0cmluZykgd3BfcGFyc2VfdXJsKGhvbWVfdXJsKCksIFBIUF9VUkxfSE9TVCkpOyBkZWxldGVfdHJhbnNpZW50KCdfd2NfYWN0aXZhdGlvbl9yZWRpcmVjdCcpOyB1cGRhdGVfb3B0aW9uKCd3b29jb21tZXJjZV90YXNrX2xpc3RfaGlkZGVuJywgJ3llcycpOyB1cGRhdGVfb3B0aW9uKCd3b29jb21tZXJjZV9vbmJvYXJkaW5nX3Byb2ZpbGUnLCBhcnJheSgnY29tcGxldGVkJyA9PiB0cnVlKSk7IHVwZGF0ZV9vcHRpb24oJ3dvb2NvbW1lcmNlX2NvbWluZ19zb29uJywgJ25vJyk7IHVwZGF0ZV9vcHRpb24oJ3dvb2NvbW1lcmNlX3N0b3JlX2FkZHJlc3MnLCAnUnluZWsgMScpOyB1cGRhdGVfb3B0aW9uKCd3b29jb21tZXJjZV9zdG9yZV9jaXR5JywgJ1dyb2NsYXcnKTsgdXBkYXRlX29wdGlvbignd29vY29tbWVyY2VfZGVmYXVsdF9jb3VudHJ5JywgJ1BMOlBMLURTJyk7IHVwZGF0ZV9vcHRpb24oJ3dvb2NvbW1lcmNlX2N1cnJlbmN5JywgJ1BMTicpOyBpZiAoY2xhc3NfZXhpc3RzKCdXQ19JbnN0YWxsJykpIHsgV0NfSW5zdGFsbDo6Y3JlYXRlX3BhZ2VzKCk7IH0gJHVwbG9hZF9kaXIgPSB3cF91cGxvYWRfZGlyKCk7ICRpbWFnZXMgPSBhcnJheSgndi1uZWNrLXQtc2hpcnQnID0+ICcyMDE3LzEyL3ZuZWNrLXRlZS0yLmpwZycsICdob29kaWUnID0+ICcyMDE3LzEyL2hvb2RpZS0yLmpwZycsICdob29kaWUtd2l0aC1sb2dvJyA9PiAnMjAxNy8xMi9ob29kaWUtd2l0aC1sb2dvLTIuanBnJywgJ3Qtc2hpcnQnID0+ICcyMDE3LzEyL3RzaGlydC0yLmpwZycsICdiZWFuaWUnID0+ICcyMDE3LzEyL2JlYW5pZS0yLmpwZycsICdiZWx0JyA9PiAnMjAxNy8xMi9iZWx0LTIuanBnJywgJ2NhcCcgPT4gJzIwMTcvMTIvY2FwLTIuanBnJywgJ3N1bmdsYXNzZXMnID0+ICcyMDE3LzEyL3N1bmdsYXNzZXMtMi5qcGcnLCAnaG9vZGllLXdpdGgtcG9ja2V0JyA9PiAnMjAxNy8xMi9ob29kaWUtd2l0aC1wb2NrZXQtMi5qcGcnLCAnaG9vZGllLXdpdGgtemlwcGVyJyA9PiAnMjAxNy8xMi9ob29kaWUtd2l0aC16aXBwZXItMi5qcGcnLCAnbG9uZy1zbGVldmUtdGVlJyA9PiAnMjAxNy8xMi9sb25nLXNsZWV2ZS10ZWUtMi5qcGcnLCAncG9sbycgPT4gJzIwMTcvMTIvcG9sby0yLmpwZycsICdhbGJ1bScgPT4gJzIwMTcvMTIvYWxidW0tMS5qcGcnLCAnc2luZ2xlJyA9PiAnMjAxNy8xMi9zaW5nbGUtMS5qcGcnLCAndC1zaGlydC13aXRoLWxvZ28nID0+ICcyMDE3LzEyL3Qtc2hpcnQtd2l0aC1sb2dvLTEuanBnJywgJ2JlYW5pZS13aXRoLWxvZ28nID0+ICcyMDE3LzEyL2JlYW5pZS13aXRoLWxvZ28tMS5qcGcnLCAnbG9nby1jb2xsZWN0aW9uJyA9PiAnMjAxNy8xMi9sb2dvLTEuanBnJywgJ3dvcmRwcmVzcy1wZW5uYW50JyA9PiAnMjAxNy8xMi9wZW5uYW50LTEuanBnJyk7ICRhbGxfZmlsZXMgPSBhcnJheV91bmlxdWUoYXJyYXlfbWVyZ2UoYXJyYXlfdmFsdWVzKCRpbWFnZXMpLCBhcnJheSgnMjAxNy8xMi92bmVjaC10ZWUtZ3JlZW4tMS5qcGcnLCAnMjAxNy8xMi92bmVjaC10ZWUtYmx1ZS0xLmpwZycsICdob29kaWUtYmx1ZS0xLmpwZycsICdob29kaWUtZ3JlZW4tMS5qcGcnKSkpOyAkYXR0YWNoX21hcCA9IGFycmF5KCk7IGZvcmVhY2ggKCRhbGxfZmlsZXMgYXMgJHJlbF9wYXRoKSB7ICRmaWxlbmFtZSA9IGJhc2VuYW1lKCRyZWxfcGF0aCk7ICRhaWQgPSB3cF9pbnNlcnRfcG9zdChhcnJheSgncG9zdF90aXRsZScgPT4gcHJlZ19yZXBsYWNlKCcvXFwuW14uXStkLycsICcnLCAkZmlsZW5hbWUpLCAncG9zdF9uYW1lJyA9PiBzYW5pdGl6ZV90aXRsZSgkZmlsZW5hbWUpLCAncG9zdF9zdGF0dXMnID0+ICdpbmhlcml0JywgJ3Bvc3RfdHlwZScgPT4gJ2F0dGFjaG1lbnQnLCAncG9zdF9taW1lX3R5cGUnID0+ICdpbWFnZS9qcGVnJywgJ2d1aWQnID0+ICR1cGxvYWRfZGlyWydiYXNldXJsJ10gLiAnLycgLiAkcmVsX3BhdGgpKTsgaWYgKCRhaWQgJiYgIWlzX3dwX2Vycm9yKCRhaWQpKSB7IHVwZGF0ZV9wb3N0X21ldGEoJGFpZCwgJ193cF9hdHRhY2hlZF9maWxlJywgJHJlbF9wYXRoKTsgJGF0dGFjaF9tYXBbJHJlbF9wYXRoXSA9ICRhaWQ7IH0gfSBpZiAoZnVuY3Rpb25fZXhpc3RzKCd3Y19nZXRfcHJvZHVjdHMnKSkgeyBmb3JlYWNoICh3Y19nZXRfcHJvZHVjdHMoYXJyYXkoJ2xpbWl0JyA9PiAtMSkpIGFzICRwKSB7ICRzbHVnID0gJHAtPmdldF9zbHVnKCk7IGlmIChpc3NldCgkaW1hZ2VzWyRzbHVnXSkgJiYgaXNzZXQoJGF0dGFjaF9tYXBbJGltYWdlc1skc2x1Z11dKSkgeyBzZXRfcG9zdF90aHVtYm5haWwoJHAtPmdldF9pZCgpLCAkYXR0YWNoX21hcFskaW1hZ2VzWyRzbHVnXV0pOyB9IH0gfSJ9XX0=)**
+Po uruchomieniu środowiska lokalnego WordPress oraz serwer Novamira MCP są wstępnie skonfigurowane z poniższymi parametrami:
 
-Link bezpośredni z parametrem URL:
+| Parametr | Wartość | Zastosowanie |
+| :--- | :--- | :--- |
+| **Adres sklepu** | `http://127.0.0.1:9400` | Strona główna WordPress + WooCommerce |
+| **Panel administracyjny** | `http://127.0.0.1:9400/wp-admin/` | Logowanie do Kokpitu WordPress |
+| **Panel Novamira MCP** | `http://127.0.0.1:9400/wp-admin/admin.php?page=novamira-connect` | Diagnostyka i status wtyczki MCP |
+| **Login użytkownika** | `admin` | Nazwa konta administratora |
+| **Hasło logowania** | `admin` | Hasło logowania w formularzu wp-login.php |
+| **Hasło Aplikacji dla MCP** | `novamira-secret-pass-2026` | Hasło autoryzacji agenta AI (`WP_API_PASSWORD`) |
+| **REST API / MCP Endpoint** | `http://127.0.0.1:9400/wp-json/mcp/novamira` | Punkt końcowy API dla proxy MCP (`WP_API_URL`) |
 
+---
+
+### Sposób 1: Błyskawiczny start lokalny one-linerem (bez klonowania repozytorium)
+
+Jeśli masz zainstalowane środowisko **Node.js (LTS)**, nie musisz klonować repozytorium ani instalować dodatkowych pakietów:
+
+```bash
+npx -y @wp-playground/cli server --blueprint="https://raw.githubusercontent.com/damadorPL/warsztat-wordcamp-wroclaw-2026/main/blueprint.json" --port=9400
+```
+
+- Pobiera najświeższy plik `blueprint.json` bezpośrednio z gałęzi `main` repozytorium na GitHubie.
+- Uruchamia serwer WordPress Playground na porcie `9400`.
+- Automatycznie instaluje wtyczkę **Novamira MCP**, konfiguruje sklep **WooCommerce** z przykładowymi produktami oraz tworzy konto `admin` z hasłem aplikacji `novamira-secret-pass-2026`.
+
+---
+
+### Sposób 2: Lokalnie ze sklonowanego repozytorium (skrypty npm)
+
+Gdy sklonowałeś to repozytorium i zainstalowałeś zależności (`npm install`):
+
+1. **Uruchomienie serwera z lokalnym plikiem `blueprint.json`:**
+   ```bash
+   npm run start
+   # lub:
+   npm run playground
+   # lub bezpośrednio npx:
+   npx -y @wp-playground/cli server --blueprint=blueprint.json --port=9400
+   ```
+2. **Uruchomienie serwera ze świeżym blueprintem pobieranym z GitHuba:**
+   ```bash
+   npm run start:remote
+   ```
+3. **Weryfikacja poprawności blueprintu (tryb headless bez serwera www):**
+   ```bash
+   npm run test:blueprint
+   # lub:
+   npx -y @wp-playground/cli run-blueprint --blueprint=blueprint.json
+   ```
+
+---
+
+### Sposób 3: Bezpośrednio w przeglądarce (WordPress Playground WebAssembly)
+
+Możesz uruchomić instancję WordPress bezpośrednio w przeglądarce za pośrednictwem oficjalnego Playgroundu:
+
+👉 **[Uruchom WordPress + Novamira + WooCommerce w przeglądarce](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/damadorPL/warsztat-wordcamp-wroclaw-2026/main/blueprint.json)**
+
+Bezpośredni adres URL:
 ```text
 https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/damadorPL/warsztat-wordcamp-wroclaw-2026/main/blueprint.json
 ```
 
----
-
-### 2. Lokalnie przez oficjalne CLI (`@wp-playground/cli`)
-
-Możesz uruchomić lokalny serwer WordPress Playground bezpośrednio jednym poleceniem `npx` (bez konieczności wcześniejszego instalowania zależności czy klonowania dodatkowych narzędzi):
-
-```bash
-# Szybkie uruchomienie lokalnego serwera z plikiem blueprint.json na porcie 9400
-npx -y @wp-playground/cli server --blueprint=blueprint.json --port=9400
-```
-
-Jeśli masz sklonowane repozytorium i zainstalowane zależności lokalnie (`npm install`), możesz użyć skróconego skryptu npm:
-
-```bash
-npm run start
-```
-
-> [!TIP]
-> **Automatyczne Hasło Aplikacji (Zero Configuration):**  
-> Plik `blueprint.json` automatycznie konfiguruje i przypisuje hasło aplikacji WordPress dla użytkownika `admin`:  
-> `novamira-secret-pass-2026`  
-> Dzięki temu po starcie serwera lokalnego **nie musisz wchodzić do Kokpitu WordPressa i ręcznie generować hasła aplikacji** – Twoje narzędzia AI i serwer MCP połączą się natychmiast!
-
-Po uruchomieniu serwera przejdź w przeglądarce pod adres:
-
-```text
-http://127.0.0.1:9400/wp-admin/admin.php?page=novamira-connect
-```
-- **Login:** `admin`
-- **Hasło:** `password`
-- **Hasło Aplikacji dla MCP:** `novamira-secret-pass-2026`
-
-Możesz też zweryfikować poprawność wykonania blueprintu bez uruchamiania serwera www:
-
-```bash
-npm run test:blueprint
-# lub: npx -y @wp-playground/cli run-blueprint --blueprint=blueprint.json
-```
+> [!NOTE]
+> Instancja w przeglądarce działa całkowicie w piaskownicy WebAssembly (Wasm). Aby połączyć z nią zewnętrznych lokalnych agentów AI (np. Claude Desktop, Cursor, VS Code, Zed), zalecane jest uruchomienie serwera lokalnego na porcie `9400` (**Sposób 1** lub **Sposób 2**), dzięki czemu proxy `mcp-wordpress-remote` może komunikować się przez `http://127.0.0.1:9400`.
 
 ---
 
-### 3. W WordPress Studio (Automattic)
+### Sposób 4: W aplikacji WordPress Studio (Automattic)
 
 1. Pobierz lub otwórz [WordPress Studio](https://developer.wordpress.com/studio/).
 2. Utwórz nową witrynę lub wybierz opcję importu Blueprintu.
@@ -245,7 +271,13 @@ Podczas warsztatu przechodzimy przez następujące etapy:
 
 ### Krok 1: Otwarcie Playgroundu
 
-Uczestnicy klikają [link do Playgroundu](https://playground.wordpress.net/#eyIkc2NoZW1hIjoiaHR0cHM6Ly9wbGF5Z3JvdW5kLndvcmRwcmVzcy5uZXQvYmx1ZXByaW50LXNjaGVtYS5qc29uIiwibWV0YSI6eyJ0aXRsZSI6IldvcmRQcmVzcyArIE5vdmFtaXJhIE1DUCBTZXJ2ZXIiLCJkZXNjcmlwdGlvbiI6IsWacm9kb3dpc2tvIFdvcmRQcmVzcyBQbGF5Z3JvdW5kIHogemFpbnN0YWxvd2FuxIUgd3R5Y3prxIUgTm92YW1pcmEgKHNlcndlciBNb2RlbCBDb250ZXh0IFByb3RvY29sKS4gVW1vxbxsaXdpYSBhZ2VudG9tIEFJIGJlenBvxZtyZWRuacSFIGludGVncmFjasSZIHogaW5zdGFuY2rEhSBXb3JkUHJlc3MuIiwiYXV0aG9yIjoiV29yZENhbXAgV3JvY8WCYXcgMjAyNiIsImNhdGVnb3JpZXMiOlsiQUkiLCJNQ1AiLCJEZXZlbG9wZXIgVG9vbHMiLCJXb3JkQ2FtcCJdfSwibGFuZGluZ1BhZ2UiOiIvd3AtYWRtaW4vYWRtaW4ucGhwP3BhZ2U9bm92YW1pcmEtY29ubmVjdCIsInByZWZlcnJlZFZlcnNpb25zIjp7InBocCI6IjguMyIsIndwIjoibGF0ZXN0In0sImZlYXR1cmVzIjp7Im5ldHdvcmtpbmciOnRydWV9LCJzaXRlT3B0aW9ucyI6eyJibG9nbmFtZSI6IldhcnN6dGF0IFdvcmRDYW1wIFdyb2PFgmF3IDIwMjYg4oCTIE5vdmFtaXJhIE1DUCJ9LCJsb2dpbiI6dHJ1ZSwic3RlcHMiOlt7InN0ZXAiOiJkZWZpbmVXcENvbmZpZ0NvbnN0cyIsImNvbnN0cyI6eyJXUF9FTlZJUk9OTUVOVF9UWVBFIjoibG9jYWwifX0seyJzdGVwIjoiaW5zdGFsbFBsdWdpbiIsInBsdWdpbkRhdGEiOnsicmVzb3VyY2UiOiJ1cmwiLCJ1cmwiOiJodHRwczovL2dpdGh1Yi5jb20vdXNlLW5vdmFtaXJhL25vdmFtaXJhL3JlbGVhc2VzL2Rvd25sb2FkL3YxLjEyLjUvbm92YW1pcmEtMS4xMi41LnppcCJ9LCJvcHRpb25zIjp7ImFjdGl2YXRlIjp0cnVlfX0seyJzdGVwIjoic2V0U2l0ZU9wdGlvbnMiLCJvcHRpb25zIjp7InBlcm1hbGlua19zdHJ1Y3R1cmUiOiIvJXBvc3RuYW1lJS8ifX0seyJzdGVwIjoicnVuUEhQIiwiY29kZSI6Ijw/cGhwIHJlcXVpcmUgJy93b3JkcHJlc3Mvd3AtbG9hZC5waHAnOyB1cGRhdGVfb3B0aW9uKCdub3ZhbWlyYV9haV9hYmlsaXRpZXNfZW5hYmxlZCcsICcxJyk7IHVwZGF0ZV9vcHRpb24oJ25vdmFtaXJhX2FpX2FiaWxpdGllc19kb21haW4nLCAoc3RyaW5nKSB3cF9wYXJzZV91cmwoaG9tZV91cmwoKSwgUEhQX1VSTF9IT1NUKSk7In1dfQ==) lub uruchamiają CLI lokalnie (`npm run start`). Po załadowaniu przeglądarka automatycznie otwiera panel **Novamira → Connect**.
+Uczestnicy uruchamiają serwer lokalnie za pomocą polecenia `npm run start` (lub One-Linera `npx`), ewentualnie otwierają [link do Playgroundu w przeglądarce](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/damadorPL/warsztat-wordcamp-wroclaw-2026/main/blueprint.json).
+
+Po załadowaniu środowiska przejdź do panelu **Novamira → Connect**:
+- **Adres URL:** `http://127.0.0.1:9400/wp-admin/admin.php?page=novamira-connect`
+- **Login:** `admin`
+- **Hasło:** `admin`
+- **Hasło Aplikacji dla MCP:** `novamira-secret-pass-2026`
 
 ### Krok 2: Konfiguracja połączenia w agencie AI
 
