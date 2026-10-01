@@ -11,6 +11,22 @@
 
 ---
 
+## 🚀 Błyskawiczny start lokalny (One-Liner bez klonowania repo)
+
+Nie musisz klonować tego repozytorium ani pobierać żadnych plików. Jeśli masz zainstalowane środowisko **Node.js (LTS)**, wystarczy uruchomić w terminalu (PowerShell / Terminal macOS / Linux) jedno polecenie:
+
+```bash
+npx -y @wp-playground/cli server --blueprint="https://raw.githubusercontent.com/damadorPL/warsztat-wordcamp-wroclaw-2026/main/blueprint.json" --port=9400
+```
+
+> [!TIP]
+> **Pełna automatyzacja (Zero Configuration):**  
+> Polecenie pobierze najświeższy blueprint bezpośrednio z GitHuba, uruchomi WordPress Playground z serwerem **Novamira MCP**, sklepem **WooCommerce** i automatycznie skonfiguruje hasło aplikacji dla użytkownika `admin`:  
+> `novamira-secret-pass-2026`  
+> Środowisko jest natychmiast dostępne pod adresem: **`http://127.0.0.1:9400`**.
+
+---
+
 ## ⚡ Szybki start (One-Click Launch)
 
 Kliknij poniższy przycisk, aby uruchomić w pełni funkcjonalny WordPress z wtyczką Novamira oraz sklepem WooCommerce bezpośrednio w Twojej przeglądarce (WebAssembly – bez instalacji serwerów, Dockera czy MySQL):
@@ -86,9 +102,13 @@ W katalogu `node_modules` zostaną zainstalowane:
 
 #### Dostępne skrypty npm:
 
-- `npm run start` (lub `npm run playground`) – uruchamia lokalny serwer WordPress Playground z naszym blueprintem na porcie `9400`:
+- `npm run start` (lub `npm run playground`) – uruchamia lokalny serwer WordPress Playground z lokalnym plikiem blueprintu na porcie `9400`:
   ```bash
   npm run start
+  ```
+- `npm run start:remote` – uruchamia serwer pobierając najświeższą wersję blueprintu bezpośrednio z GitHuba:
+  ```bash
+  npm run start:remote
   ```
 - `npm run test:blueprint` – uruchamia blueprint weryfikacyjnie w trybie headless:
   ```bash

@@ -9,7 +9,8 @@
     "test:blueprint": "npx -y @wp-playground/cli run-blueprint --blueprint=blueprint.json",
     "validate:layout": "node dane/validate-layout.js",
     "test:layout": "node dane/validate-layout.js dane/przykladowy-layout.html",
-    "mcp": "mcp-wordpress-remote"
+    "mcp": "mcp-wordpress-remote",
+    "start:remote": "npx -y @wp-playground/cli server --blueprint=https://raw.githubusercontent.com/damadorPL/warsztat-wordcamp-wroclaw-2026/main/blueprint.json --port=9400"
   },
   "keywords": [
     "wordpress",
