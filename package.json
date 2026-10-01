@@ -4,9 +4,9 @@
   "description": "WordPress Playground Blueprint z wtyczką Novamira (serwer MCP) oraz klientem mcp-wordpress-remote na warsztat WordCamp Wrocław 2026",
   "main": "blueprint.json",
   "scripts": {
-    "start": "wp-playground server --blueprint=blueprint.json --port=9400",
-    "playground": "wp-playground server --blueprint=blueprint.json --port=9400",
-    "test:blueprint": "wp-playground run-blueprint --blueprint=blueprint.json",
+    "start": "npx -y @wp-playground/cli server --blueprint=blueprint.json --port=9400",
+    "playground": "npx -y @wp-playground/cli server --blueprint=blueprint.json --port=9400",
+    "test:blueprint": "npx -y @wp-playground/cli run-blueprint --blueprint=blueprint.json",
     "validate:layout": "node dane/validate-layout.js",
     "test:layout": "node dane/validate-layout.js dane/przykladowy-layout.html",
     "mcp": "mcp-wordpress-remote"

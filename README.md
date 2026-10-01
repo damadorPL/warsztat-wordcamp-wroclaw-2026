@@ -136,24 +136,33 @@ https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.co
 
 ### 2. Lokalnie przez oficjalne CLI (`@wp-playground/cli`)
 
-Gdy masz zainstalowane zależności w projekcie (`npm install`), wystarczy uruchomić:
+Możesz uruchomić lokalny serwer WordPress Playground bezpośrednio jednym poleceniem `npx` (bez konieczności wcześniejszego instalowania zależności czy klonowania dodatkowych narzędzi):
+
+```bash
+# Szybkie uruchomienie lokalnego serwera z plikiem blueprint.json na porcie 9400
+npx -y @wp-playground/cli server --blueprint=blueprint.json --port=9400
+```
+
+Jeśli masz sklonowane repozytorium i zainstalowane zależności lokalnie (`npm install`), możesz użyć skróconego skryptu npm:
 
 ```bash
 npm run start
 ```
 
-Alternatywnie przez bezpośrednie wywołanie `npx`:
+> [!TIP]
+> **Automatyczne Hasło Aplikacji (Zero Configuration):**  
+> Plik `blueprint.json` automatycznie konfiguruje i przypisuje hasło aplikacji WordPress dla użytkownika `admin`:  
+> `novamira-secret-pass-2026`  
+> Dzięki temu po starcie serwera lokalnego **nie musisz wchodzić do Kokpitu WordPressa i ręcznie generować hasła aplikacji** – Twoje narzędzia AI i serwer MCP połączą się natychmiast!
 
-```bash
-# Uruchomienie lokalnego serwera z plikiem blueprint.json na porcie 9400
-npx -y @wp-playground/cli server --blueprint=blueprint.json --port=9400
-```
-
-Po uruchomieniu przejdź w przeglądarce pod adres:
+Po uruchomieniu serwera przejdź w przeglądarce pod adres:
 
 ```text
 http://127.0.0.1:9400/wp-admin/admin.php?page=novamira-connect
 ```
+- **Login:** `admin`
+- **Hasło:** `password`
+- **Hasło Aplikacji dla MCP:** `novamira-secret-pass-2026`
 
 Możesz też zweryfikować poprawność wykonania blueprintu bez uruchamiania serwera www:
 
@@ -235,7 +244,7 @@ W pliku konfiguracyjnym MCP Twojego agenta (np. `mcp_config.json`, `claude_deskt
       "env": {
         "WP_API_URL": "http://127.0.0.1:9400/wp-json/mcp/novamira",
         "WP_API_USERNAME": "admin",
-        "WP_API_PASSWORD": "<TWOJE_HASLO_APLIKACJI>"
+        "WP_API_PASSWORD": "novamira-secret-pass-2026"
       }
     }
   }
@@ -253,7 +262,7 @@ W pliku konfiguracyjnym MCP Twojego agenta (np. `mcp_config.json`, `claude_deskt
       "env": {
         "WP_API_URL": "http://127.0.0.1:9400/wp-json/mcp/novamira",
         "WP_API_USERNAME": "admin",
-        "WP_API_PASSWORD": "<TWOJE_HASLO_APLIKACJI>"
+        "WP_API_PASSWORD": "novamira-secret-pass-2026"
       }
     }
   }
