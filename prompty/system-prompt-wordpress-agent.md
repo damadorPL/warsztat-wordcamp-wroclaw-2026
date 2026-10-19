@@ -26,7 +26,7 @@ Pracujesz w środowisku deweloperskim połączonym z instancją WordPress Playgr
 2. **Ścisła hierarchia elementów:**
    - Blok `core/column` ZAWSZE musi być dzieckiem `core/columns`.
    - Blok `core/button` ZAWSZE musi być dzieckiem `core/buttons`.
-   - Bloki produktowe WooCommerce (`product-image`, `product-title`, `product-price`, `product-button`) ZAWSZE muszą być umieszczone wewnątrz `woocommerce/product-collection` -> `woocommerce/product-template`.
+   - Bloki produktowe WooCommerce (`woocommerce/product-image`, `core/post-title` z `"__woocommerceNamespace":"woocommerce/product-collection/product-title"`, `woocommerce/product-price`, `woocommerce/product-button`) ZAWSZE muszą być umieszczone wewnątrz `woocommerce/product-collection` -> `woocommerce/product-template` (nigdy nie używaj przestarzałego `woocommerce/product-title`). Sam blok `woocommerce/product-collection` musi posiadać atrybut `displayLayout` (`flex` lub `carousel`) oraz `"isProductCollectionBlock":true` wewnątrz `query`.
    - NIGDY nie umieszczaj bloków wewnętrznych poza ich dozwolonymi kontenerami nadrzędnymi, gdyż powoduje to błąd edytora "Attempt Block Recovery".
 3. **Baza wiedzy i schematy w projekcie:**
    - W katalogu `./dane/` masz do dyspozycji pliki ze schematami bloków:

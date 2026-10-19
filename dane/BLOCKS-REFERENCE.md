@@ -158,25 +158,54 @@ Blok `group` to podstawa sekcji. Obsługuje 3 tryby layoutu:
 
 ## 🛒 Kluczowe Bloki WooCommerce
 
-W nowoczesnym WooCommerce nie używamy przestarzałych shortcode'ów `[products]`. Zamiast tego stosujemy **Gutenberg Block Hierarchy**:
+W nowoczesnym WooCommerce nie używamy przestarzałych shortcode'ów `[products]` ani wycofanego bloku `woocommerce/all-products`. Zamiast tego stosujemy **Gutenberg Block Hierarchy**:
 
-### 1. `woocommerce/product-collection` – Siatka / Katalog Produktów
+### 1. `woocommerce/product-collection` – Siatka (`flex`) oraz Karuzela (`carousel`) Produktów
 Hierarchia wymagana przez WooCommerce:
-* `woocommerce/product-collection`
+* `woocommerce/product-collection` (musi zawierać `"displayLayout"` oraz `"isProductCollectionBlock":true` w `"query"`)
   * `woocommerce/product-template`
     * `woocommerce/product-image`
-    * `woocommerce/product-title`
+    * `core/post-title` (`wp:post-title` z `"__woocommerceNamespace":"woocommerce/product-collection/product-title"`)
     * `woocommerce/product-price`
     * `woocommerce/product-button`
 
+> ⚠️ **Żelazne reguły `woocommerce/product-collection`:**
+> 1. **NIGDY nie używaj bloku `woocommerce/product-title` wewnątrz `product-collection`!** Blok `woocommerce/product-title` to przestarzały element ze starego `woocommerce/all-products`, który nie posiada renderera PHP (tytuły produktów będą puste) i powoduje błąd przodka w walidatorze. Zawsze używaj `<!-- wp:post-title {"textAlign":"center","level":3,"isLink":true,"__woocommerceNamespace":"woocommerce/product-collection/product-title"} /-->`.
+> 2. **ZAWSZE definiuj atrybut `displayLayout`** na `woocommerce/product-collection` (`{"type":"flex","columns":4,"shrinkColumns":true}` dla siatki lub `{"type":"carousel","columns":4,"shrinkColumns":true}` dla karuzeli). Bez `displayLayout` lista `<ul>` nie otrzymuje klas układu i produkty wyświetlają się w jednej pionowej kolumnie na całą szerokość strony.
+> 3. **ZAWSZE dodawaj `"isProductCollectionBlock":true` wewnątrz `query`**, aby WooCommerce uruchomił `QueryBuilder` oraz załadował moduł Interactivity API.
+
+#### Wariant A: Siatka produktów (Grid – 4 kolumny):
 ```html
-<!-- wp:woocommerce/product-collection {"query":{"perPage":4,"pages":0,"offset":0,"postType":"product","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false}} -->
+<!-- wp:woocommerce/product-collection {"queryId":0,"query":{"perPage":4,"pages":0,"offset":0,"postType":"product","order":"desc","orderBy":"date","search":"","exclude":[],"inherit":false,"taxQuery":{},"isProductCollectionBlock":true,"featured":false,"woocommerceOnSale":false,"woocommerceStockStatus":["instock","onbackorder"],"woocommerceAttributes":[],"woocommerceHandPickedProducts":[],"filterable":false},"tagName":"div","displayLayout":{"type":"flex","columns":4,"shrinkColumns":true},"dimensions":{"widthType":"fill"},"queryContextIncludes":["collection"],"forcePageReload":false} -->
 <div class="wp-block-woocommerce-product-collection">
   <!-- wp:woocommerce/product-template -->
-  <!-- wp:woocommerce/product-image {"showSaleBadge":true} /-->
-  <!-- wp:woocommerce/product-title {"textAlign":"center"} /-->
-  <!-- wp:woocommerce/product-price {"textAlign":"center"} /-->
-  <!-- wp:woocommerce/product-button {"textAlign":"center"} /-->
+  <!-- wp:woocommerce/product-image {"showSaleBadge":true,"isDescendentOfQueryLoop":true} /-->
+  <!-- wp:post-title {"textAlign":"center","level":3,"isLink":true,"__woocommerceNamespace":"woocommerce/product-collection/product-title"} /-->
+  <!-- wp:woocommerce/product-price {"isDescendentOfQueryLoop":true,"textAlign":"center"} /-->
+  <!-- wp:woocommerce/product-button {"isDescendentOfQueryLoop":true,"textAlign":"center"} /-->
+  <!-- /wp:woocommerce/product-template -->
+</div>
+<!-- /wp:woocommerce/product-collection -->
+```
+
+#### Wariant B: Karuzela produktów (Carousel – przewijany wiersz z przyciskami nawigacji):
+W trybie karuzeli (`"displayLayout":{"type":"carousel",...}`) wewnętrzny blok `woocommerce/product-template` **musi** dodatkowo posiadać atrybut `layout` typu `flex` z `"flexWrap":"nowrap"`, aby elementy ułożyły się w poziomym przewijanym wierszu:
+```html
+<!-- wp:woocommerce/product-collection {"queryId":1,"query":{"perPage":6,"pages":1,"offset":0,"postType":"product","order":"desc","orderBy":"date","search":"","exclude":[],"inherit":false,"taxQuery":{},"isProductCollectionBlock":true,"featured":false,"woocommerceOnSale":false,"woocommerceStockStatus":["instock","onbackorder"],"woocommerceAttributes":[],"woocommerceHandPickedProducts":[],"filterable":false},"tagName":"div","displayLayout":{"type":"carousel","columns":4,"shrinkColumns":true},"dimensions":{"widthType":"fill"},"queryContextIncludes":["collection"],"forcePageReload":false} -->
+<div class="wp-block-woocommerce-product-collection">
+  <!-- wp:group {"className":"wc-product-collection-carousel-header","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
+  <div class="wp-block-group wc-product-collection-carousel-header">
+    <!-- wp:heading {"level":2} -->
+    <h2 class="wp-block-heading">Polecane gadżety konferencyjne</h2>
+    <!-- /wp:heading -->
+    <!-- wp:woocommerce/product-gallery-large-image-next-previous {"layout":{"type":"flex","flexWrap":"nowrap"}} /-->
+  </div>
+  <!-- /wp:group -->
+  <!-- wp:woocommerce/product-template {"layout":{"type":"flex","justifyContent":"left","verticalAlignment":"top","flexWrap":"nowrap","orientation":"horizontal"}} -->
+  <!-- wp:woocommerce/product-image {"showSaleBadge":true,"isDescendentOfQueryLoop":true} /-->
+  <!-- wp:post-title {"textAlign":"center","level":3,"isLink":true,"__woocommerceNamespace":"woocommerce/product-collection/product-title"} /-->
+  <!-- wp:woocommerce/product-price {"isDescendentOfQueryLoop":true,"textAlign":"center"} /-->
+  <!-- wp:woocommerce/product-button {"isDescendentOfQueryLoop":true,"textAlign":"center"} /-->
   <!-- /wp:woocommerce/product-template -->
 </div>
 <!-- /wp:woocommerce/product-collection -->

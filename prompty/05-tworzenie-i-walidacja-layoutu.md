@@ -30,7 +30,8 @@ Zwróć szczególną uwagę na:
 - Poprawność składni delimiterów (`<!-- wp:nazwa-bloku {atrybuty} -->` vs `<!-- wp:nazwa-bloku /-->`),
 - Żelazną regułę: `core/column` ZAWSZE wewnątrz `core/columns`,
 - Żelazną regułę: `core/button` ZAWSZE wewnątrz `core/buttons`,
-- Żelazną regułę: bloki produktowe WooCommerce (`product-image`, `product-title`, `product-price`, `product-button`) ZAWSZE wewnątrz kontenerów `woocommerce/product-collection` -> `woocommerce/product-template`.
+- Żelazną regułę: bloki produktowe WooCommerce (`woocommerce/product-image`, `core/post-title` z `"__woocommerceNamespace":"woocommerce/product-collection/product-title"`, `woocommerce/product-price`, `woocommerce/product-button`) ZAWSZE wewnątrz kontenerów `woocommerce/product-collection` -> `woocommerce/product-template` (nigdy nie używaj przestarzałego `woocommerce/product-title`!),
+- Żelazną regułę: `woocommerce/product-collection` ZAWSZE musi posiadać atrybut `displayLayout` (`{"type":"flex","columns":4,"shrinkColumns":true}` dla siatki lub `{"type":"carousel","columns":4,"shrinkColumns":true}` dla karuzeli) oraz `"isProductCollectionBlock":true` wewnątrz `query`.
 
 ### KROK 2: Wygenerowanie markup'u strony
 Przygotuj kod HTML zawierający 3 kluczowe sekcje:
@@ -43,10 +44,10 @@ Przygotuj kod HTML zawierający 3 kluczowe sekcje:
 2. **Sekcja Informacyjna – 2 Kolumny (`core/columns` 50% / 50%):**
    - Lewa kolumna: Nagłówek H3, akapit tekstu opisujący inicjatywę społeczności WordPressa oraz punktowana lista atutów.
    - Prawa kolumna: Estetyczny obrazek (`core/image`) lub ramka z cytatem/wyróżnieniem (`core/quote`).
-3. **Katalog Produktów (`woocommerce/product-collection`):**
+3. **Katalog / Karuzela Produktów (`woocommerce/product-collection`):**
    - Sekcja z nagłówkiem H2: "Polecane gadżety konferencyjne",
-   - Siatka produktów pobierająca 4 elementy (`perPage: 4`),
-   - Szablon produktu (`woocommerce/product-template`) zawierający: zdjęcie produktu ze znacznikiem promocji (`showSaleBadge: true`), tytuł, cenę i przycisk zakupu wyśrodkowany.
+   - Kolekcja produktów z poprawnym `displayLayout` (siatka 4-kolumnowa `"type": "flex"` lub karuzela `"type": "carousel"`) oraz `"isProductCollectionBlock": true` w `query`,
+   - Szablon produktu (`woocommerce/product-template`) zawierający: zdjęcie produktu ze znacznikiem promocji (`showSaleBadge: true`), tytuł produktu (`core/post-title` z `"__woocommerceNamespace":"woocommerce/product-collection/product-title"`), cenę i przycisk zakupu wyśrodkowany.
 
 ### KROK 3: Walidacja layoutu silnikiem Node.js
 Przed wysłaniem kodu do WordPressa:
@@ -55,7 +56,7 @@ Przed wysłaniem kodu do WordPressa:
    ```bash
    npm run validate:layout -- dane/wygenerowany-layout.html
    ```
-3. Jeśli walidator wykaże jakiekolwiek błędy hierarchii lub nierozpoznane bloki, skoryguj kod i powtórz walidację, aż uzyskasz wynik: `Layout jest w 100% poprawny!`
+3. Jeśli walidator wykaże jakiekolwiek błędy hierarchii lub nierozpoznane bloki, skoryguj kod i powtórz walidację, aż uzyskasz wynik: `✅ PRAWIDŁOWY`.
 
 ### KROK 4: Publikacja w WordPressie
 Po pomyślnej walidacji:
@@ -72,7 +73,7 @@ Po pomyślnej walidacji:
 
 ## 🧪 Przykładowy zweryfikowany wzorzec kodu (Gutenberg Markup)
 
-Poniższy fragment przedstawia sprawdzoną strukturę sekcji produktowej i Hero, zgodną z `dane/BLOCKS-REFERENCE.md`:
+Poniższy fragment przedstawia sprawdzoną strukturę sekcji Hero, kolumn oraz kolekcji produktów (w wariancie siatki 4-kolumnowej oraz karuzeli), zgodną z `dane/BLOCKS-REFERENCE.md`:
 
 ```html
 <!-- wp:cover {"dimRatio":60,"overlayColor":"black","minHeight":420,"minHeightUnit":"px","layout":{"type":"constrained"}} -->
@@ -116,13 +117,13 @@ Poniższy fragment przedstawia sprawdzoną strukturę sekcji produktowej i Hero,
 </div>
 <!-- /wp:columns -->
 
-<!-- wp:woocommerce/product-collection {"query":{"perPage":4,"pages":0,"offset":0,"postType":"product","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false}} -->
+<!-- wp:woocommerce/product-collection {"queryId":0,"query":{"perPage":4,"pages":0,"offset":0,"postType":"product","order":"desc","orderBy":"date","search":"","exclude":[],"inherit":false,"taxQuery":{},"isProductCollectionBlock":true,"featured":false,"woocommerceOnSale":false,"woocommerceStockStatus":["instock","onbackorder"],"woocommerceAttributes":[],"woocommerceHandPickedProducts":[],"filterable":false},"tagName":"div","displayLayout":{"type":"flex","columns":4,"shrinkColumns":true},"dimensions":{"widthType":"fill"},"queryContextIncludes":["collection"],"forcePageReload":false} -->
 <div class="wp-block-woocommerce-product-collection">
   <!-- wp:woocommerce/product-template -->
-  <!-- wp:woocommerce/product-image {"showSaleBadge":true} /-->
-  <!-- wp:woocommerce/product-title {"textAlign":"center"} /-->
-  <!-- wp:woocommerce/product-price {"textAlign":"center"} /-->
-  <!-- wp:woocommerce/product-button {"textAlign":"center"} /-->
+  <!-- wp:woocommerce/product-image {"showSaleBadge":true,"isDescendentOfQueryLoop":true} /-->
+  <!-- wp:post-title {"textAlign":"center","level":3,"isLink":true,"__woocommerceNamespace":"woocommerce/product-collection/product-title"} /-->
+  <!-- wp:woocommerce/product-price {"isDescendentOfQueryLoop":true,"textAlign":"center"} /-->
+  <!-- wp:woocommerce/product-button {"isDescendentOfQueryLoop":true,"textAlign":"center"} /-->
   <!-- /wp:woocommerce/product-template -->
 </div>
 <!-- /wp:woocommerce/product-collection -->

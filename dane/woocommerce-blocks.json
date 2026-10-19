@@ -6008,7 +6008,7 @@
     "title": "Product Collection",
     "category": "woocommerce",
     "description": "Display a collection of products from your store.",
-    "blockType": "dynamic",
+    "blockType": "hybrid",
     "parent": null,
     "ancestor": null,
     "allowedBlocks": null,
@@ -6023,7 +6023,28 @@
       },
       "query": {
         "type": "object",
-        "default": null,
+        "default": {
+          "perPage": 9,
+          "pages": 0,
+          "offset": 0,
+          "postType": "product",
+          "order": "asc",
+          "orderBy": "title",
+          "search": "",
+          "exclude": [],
+          "inherit": false,
+          "taxQuery": {},
+          "isProductCollectionBlock": true,
+          "featured": false,
+          "woocommerceOnSale": false,
+          "woocommerceStockStatus": [
+            "instock",
+            "onbackorder"
+          ],
+          "woocommerceAttributes": [],
+          "woocommerceHandPickedProducts": [],
+          "filterable": false
+        },
         "enum": null,
         "source": null,
         "selector": null,
@@ -6031,7 +6052,7 @@
       },
       "tagName": {
         "type": "string",
-        "default": null,
+        "default": "div",
         "enum": null,
         "source": null,
         "selector": null,
@@ -6039,15 +6060,37 @@
       },
       "displayLayout": {
         "type": "object",
-        "default": null,
+        "default": {
+          "type": "flex",
+          "columns": 3,
+          "shrinkColumns": true
+        },
         "enum": null,
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "flex",
+              "list",
+              "carousel"
+            ]
+          },
+          "columns": {
+            "type": "number"
+          },
+          "shrinkColumns": {
+            "type": "boolean"
+          }
+        },
         "source": null,
         "selector": null,
         "role": null
       },
       "dimensions": {
         "type": "object",
-        "default": null,
+        "default": {
+          "widthType": "fill"
+        },
         "enum": null,
         "source": null,
         "selector": null,
@@ -6079,7 +6122,9 @@
       },
       "queryContextIncludes": {
         "type": "array",
-        "default": null,
+        "default": [
+          "collection"
+        ],
         "enum": null,
         "source": null,
         "selector": null,
@@ -6114,7 +6159,7 @@
     },
     "styles": [],
     "variations": [],
-    "exampleMarkup": "<!-- wp:woocommerce/product-collection /-->"
+    "exampleMarkup": "<!-- wp:woocommerce/product-collection {\"queryId\":0,\"query\":{\"perPage\":4,\"pages\":0,\"offset\":0,\"postType\":\"product\",\"order\":\"desc\",\"orderBy\":\"date\",\"search\":\"\",\"exclude\":[],\"inherit\":false,\"taxQuery\":{},\"isProductCollectionBlock\":true,\"featured\":false,\"woocommerceOnSale\":false,\"woocommerceStockStatus\":[\"instock\",\"onbackorder\"],\"woocommerceAttributes\":[],\"woocommerceHandPickedProducts\":[],\"filterable\":false},\"tagName\":\"div\",\"displayLayout\":{\"type\":\"flex\",\"columns\":4,\"shrinkColumns\":true},\"dimensions\":{\"widthType\":\"fill\"},\"queryContextIncludes\":[\"collection\"],\"forcePageReload\":false} -->\n<div class=\"wp-block-woocommerce-product-collection\">\n  <!-- wp:woocommerce/product-template -->\n  <!-- wp:woocommerce/product-image {\"showSaleBadge\":true,\"isDescendentOfQueryLoop\":true} /-->\n  <!-- wp:post-title {\"textAlign\":\"center\",\"level\":3,\"isLink\":true,\"__woocommerceNamespace\":\"woocommerce/product-collection/product-title\"} /-->\n  <!-- wp:woocommerce/product-price {\"isDescendentOfQueryLoop\":true,\"textAlign\":\"center\"} /-->\n  <!-- wp:woocommerce/product-button {\"isDescendentOfQueryLoop\":true,\"textAlign\":\"center\"} /-->\n  <!-- /wp:woocommerce/product-template -->\n</div>\n<!-- /wp:woocommerce/product-collection -->"
   },
   "woocommerce/product-collection-no-results": {
     "name": "woocommerce/product-collection-no-results",
@@ -9356,9 +9401,13 @@
     "title": "Product Template",
     "category": "woocommerce",
     "description": "Contains the block elements used to render a product.",
-    "blockType": "dynamic",
-    "parent": null,
-    "ancestor": null,
+    "blockType": "hybrid",
+    "parent": [
+      "woocommerce/product-collection"
+    ],
+    "ancestor": [
+      "woocommerce/product-collection"
+    ],
     "allowedBlocks": null,
     "attributes": {},
     "supports": {
@@ -9402,13 +9451,13 @@
     },
     "styles": [],
     "variations": [],
-    "exampleMarkup": "<!-- wp:woocommerce/product-template /-->"
+    "exampleMarkup": "<!-- wp:woocommerce/product-template -->\n<!-- wp:woocommerce/product-image {\"showSaleBadge\":true,\"isDescendentOfQueryLoop\":true} /-->\n<!-- wp:post-title {\"textAlign\":\"center\",\"level\":3,\"isLink\":true,\"__woocommerceNamespace\":\"woocommerce/product-collection/product-title\"} /-->\n<!-- wp:woocommerce/product-price {\"isDescendentOfQueryLoop\":true,\"textAlign\":\"center\"} /-->\n<!-- wp:woocommerce/product-button {\"isDescendentOfQueryLoop\":true,\"textAlign\":\"center\"} /-->\n<!-- /wp:woocommerce/product-template -->"
   },
   "woocommerce/product-title": {
     "name": "woocommerce/product-title",
     "title": "Product Title",
     "category": "woocommerce-product-elements",
-    "description": "Display the title of a product.",
+    "description": "Legacy block for woocommerce/all-products only (no PHP SSR renderer). Inside woocommerce/product-collection -> woocommerce/product-template, ALWAYS use core/post-title with __woocommerceNamespace: \"woocommerce/product-collection/product-title\".",
     "blockType": "dynamic",
     "parent": null,
     "ancestor": [

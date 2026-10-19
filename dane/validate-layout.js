@@ -36,7 +36,8 @@ const allKnownBlocks = { ...coreBlocks, ...wooBlocks };
 const GLOBAL_ATTRIBUTES = new Set([
   'className', 'anchor', 'style', 'backgroundColor', 'textColor',
   'gradient', 'fontSize', 'fontFamily', 'align', 'textAlign', 'lock',
-  'metadata', 'tagName', 'borderColor', 'layout', 'aspectRatio', 'level'
+  'metadata', 'tagName', 'borderColor', 'layout', 'aspectRatio', 'level',
+  '__woocommerceNamespace'
 ]);
 
 /**
@@ -121,7 +122,31 @@ function validateLayout(markup) {
           ancestorNames.includes(req) || ancestorNames.includes(req.replace(/^core\//, ''))
         );
         if (!hasValidAncestor) {
-          errors.push(`Błąd przodka: Blok "${blockName}" wymaga przodka z listy [${schema.ancestor.join(', ')}]. Dostępni przodkowie: [${ancestorNames.join(', ') || 'brak'}].`);
+          if (canonicalName === 'woocommerce/product-title' && (ancestorNames.includes('woocommerce/product-collection') || ancestorNames.includes('woocommerce/product-template'))) {
+            errors.push('Błąd przodka: Blok "woocommerce/product-title" to przestarzały blok przeznaczony wyłącznie dla "woocommerce/all-products" (nie renderuje tytułów w PHP). Wewnątrz "woocommerce/product-template" użyj bloku "core/post-title": <!-- wp:post-title {"textAlign":"center","level":3,"isLink":true,"__woocommerceNamespace":"woocommerce/product-collection/product-title"} /-->.');
+          } else {
+            errors.push(`Błąd przodka: Blok "${blockName}" wymaga przodka z listy [${schema.ancestor.join(', ')}]. Dostępni przodkowie: [${ancestorNames.join(', ') || 'brak'}].`);
+          }
+        }
+      }
+
+      // 3b. Specjalna walidacja dla woocommerce/product-collection (układ siatki/karuzeli i kontekst zapytania)
+      if (canonicalName === 'woocommerce/product-collection') {
+        if (!attrs || !attrs.displayLayout || !attrs.displayLayout.type) {
+          errors.push('Blok "woocommerce/product-collection": Brak wymaganego atrybutu "displayLayout" (np. {"type":"flex","columns":4,"shrinkColumns":true} dla siatki lub {"type":"carousel","columns":4,"shrinkColumns":true} dla karuzeli). Bez niego produkty wyświetlają się w jednej pionowej kolumnie.');
+        } else if (!['flex', 'list', 'carousel'].includes(attrs.displayLayout.type)) {
+          errors.push(`Blok "woocommerce/product-collection": Niedozwolona wartość displayLayout.type="${attrs.displayLayout.type}". Dozwolone: [flex, list, carousel].`);
+        }
+
+        if (!attrs || !attrs.query || attrs.query.isProductCollectionBlock !== true) {
+          errors.push('Blok "woocommerce/product-collection": W obiekcie "query" brakuje wymaganego pola "isProductCollectionBlock": true, bez którego WooCommerce pomija QueryBuilder oraz Interactivity API.');
+        }
+
+        if (attrs?.displayLayout?.type === 'carousel') {
+          const templateBlock = (innerBlocks || []).find(b => b.blockName === 'woocommerce/product-template');
+          if (templateBlock && (templateBlock.attrs?.layout?.type !== 'flex' || templateBlock.attrs?.layout?.flexWrap !== 'nowrap')) {
+            errors.push('Blok "woocommerce/product-collection" (tryb carousel): Wewnętrzny blok "woocommerce/product-template" wymaga atrybutu {"layout":{"type":"flex","justifyContent":"left","verticalAlignment":"top","flexWrap":"nowrap","orientation":"horizontal"}}, aby produkty przewijały się w poziomie.');
+          }
         }
       }
 

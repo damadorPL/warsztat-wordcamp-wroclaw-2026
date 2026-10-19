@@ -12,14 +12,14 @@
       "title": "Group",
       "blockType": "static",
       "parent": null,
-      "exampleMarkup": "<!-- wp:core/group {\"layout\":{\"type\":\"constrained\"}} -->\n<div class=\"wp-block-core-group\"><!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\">Tytuł wewnątrz grupy</h2>\n<!-- /wp:heading --><!-- wp:paragraph -->\n<p>Treść kontenera grupy.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:core/group -->"
+      "exampleMarkup": "<!-- wp:group {\"layout\":{\"type\":\"constrained\"}} -->\n<div class=\"wp-block-group\"><!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\">Tytuł wewnątrz grupy</h2>\n<!-- /wp:heading --><!-- wp:paragraph -->\n<p>Treść kontenera grupy.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:group -->"
     },
     {
       "name": "core/columns",
       "title": "Columns",
       "blockType": "static",
       "parent": null,
-      "exampleMarkup": "<!-- wp:core/columns -->\n<div class=\"wp-block-core-columns\"><!-- wp:core/column -->\n<div class=\"wp-block-column\"><!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Kolumna 1</h3>\n<!-- /wp:heading --><!-- wp:paragraph -->\n<p>Treść pierwszej kolumny.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:core/column -->\n<!-- wp:core/column -->\n<div class=\"wp-block-column\"><!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Kolumna 2</h3>\n<!-- /wp:heading --><!-- wp:paragraph -->\n<p>Treść drugiej kolumny.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:core/column --></div>\n<!-- /wp:core/columns -->"
+      "exampleMarkup": "<!-- wp:columns -->\n<div class=\"wp-block-columns\"><!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Kolumna 1</h3>\n<!-- /wp:heading --><!-- wp:paragraph -->\n<p>Treść pierwszej kolumny.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column -->\n<!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Kolumna 2</h3>\n<!-- /wp:heading --><!-- wp:paragraph -->\n<p>Treść drugiej kolumny.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->"
     },
     {
       "name": "core/column",
@@ -28,28 +28,28 @@
       "parent": [
         "core/columns"
       ],
-      "exampleMarkup": "<!-- wp:core/column -->\n<div class=\"wp-block-core-column\"><!-- wp:paragraph -->\n<p>Zawartość pojedynczej kolumny.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:core/column -->"
+      "exampleMarkup": "<!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:paragraph -->\n<p>Zawartość pojedynczej kolumny.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column -->"
     },
     {
       "name": "core/cover",
       "title": "Cover",
       "blockType": "hybrid",
       "parent": null,
-      "exampleMarkup": "<!-- wp:core/cover {\"dimRatio\":50,\"overlayColor\":\"black\",\"minHeight\":400,\"minHeightUnit\":\"px\",\"layout\":{\"type\":\"constrained\"}} -->\n<div class=\"wp-block-core-cover\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-black-background-color has-background-dim-50 has-background-dim\"></span><div class=\"wp-block-cover__inner-container\"><!-- wp:heading {\"textAlign\":\"center\",\"level\":1} -->\n<h1 class=\"wp-block-heading has-text-align-center\">Tytuł Sekcji Hero</h1>\n<!-- /wp:heading --></div></div>\n<!-- /wp:core/cover -->"
+      "exampleMarkup": "<!-- wp:cover {\"dimRatio\":50,\"overlayColor\":\"black\",\"minHeight\":400,\"minHeightUnit\":\"px\",\"layout\":{\"type\":\"constrained\"}} -->\n<div class=\"wp-block-cover\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-black-background-color has-background-dim-50 has-background-dim\"></span><div class=\"wp-block-cover__inner-container\"><!-- wp:heading {\"textAlign\":\"center\",\"level\":1} -->\n<h1 class=\"wp-block-heading has-text-align-center\">Tytuł Sekcji Hero</h1>\n<!-- /wp:heading --></div></div>\n<!-- /wp:cover -->"
     },
     {
       "name": "core/media-text",
       "title": "Media & Text",
       "blockType": "hybrid",
       "parent": null,
-      "exampleMarkup": "<!-- wp:core/media-text -->\n<div class=\"wp-block-core-media-text\"><!-- Treść bloku Media & Text --></div>\n<!-- /wp:core/media-text -->"
+      "exampleMarkup": "<!-- wp:media-text -->\n<div class=\"wp-block-media-text\"><!-- Treść bloku Media & Text --></div>\n<!-- /wp:media-text -->"
     },
     {
       "name": "core/buttons",
       "title": "Buttons",
       "blockType": "static",
       "parent": null,
-      "exampleMarkup": "<!-- wp:core/buttons {\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\"}} -->\n<div class=\"wp-block-core-buttons\"><!-- wp:button {\"className\":\"is-style-fill\"} -->\n<div class=\"wp-block-button is-style-fill\"><a class=\"wp-block-button__link wp-element-button\" href=\"#\">Główny przycisk</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:core/buttons -->"
+      "exampleMarkup": "<!-- wp:buttons {\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\"}} -->\n<div class=\"wp-block-buttons\"><!-- wp:button {\"className\":\"is-style-fill\"} -->\n<div class=\"wp-block-button is-style-fill\"><a class=\"wp-block-button__link wp-element-button\" href=\"#\">Główny przycisk</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->"
     },
     {
       "name": "core/button",
@@ -58,49 +58,49 @@
       "parent": [
         "core/buttons"
       ],
-      "exampleMarkup": "<!-- wp:core/button -->\n<div class=\"wp-block-core-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"#\">Dowiedz się więcej</a></div>\n<!-- /wp:core/button -->"
+      "exampleMarkup": "<!-- wp:button -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"#\">Dowiedz się więcej</a></div>\n<!-- /wp:button -->"
     },
     {
       "name": "core/spacer",
       "title": "Spacer",
       "blockType": "static",
       "parent": null,
-      "exampleMarkup": "<!-- wp:core/spacer {\"height\":\"40px\"} -->\n<div class=\"wp-block-core-spacer\"><div style=\"height:40px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div></div>\n<!-- /wp:core/spacer -->"
+      "exampleMarkup": "<!-- wp:spacer {\"height\":\"40px\"} -->\n<div style=\"height:40px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer -->"
     },
     {
       "name": "core/separator",
       "title": "Separator",
       "blockType": "static",
       "parent": null,
-      "exampleMarkup": "<!-- wp:core/separator -->\n<hr class=\"wp-block-core-separator\"/>\n<!-- /wp:core/separator -->"
+      "exampleMarkup": "<!-- wp:separator -->\n<hr class=\"wp-block-separator\"/>\n<!-- /wp:separator -->"
     },
     {
       "name": "core/heading",
       "title": "Heading",
       "blockType": "hybrid",
       "parent": null,
-      "exampleMarkup": "<!-- wp:core/heading -->\n<h2 class=\"wp-block-core-heading\">Przykładowy nagłówek sekcji</h2>\n<!-- /wp:core/heading -->"
+      "exampleMarkup": "<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Przykładowy nagłówek sekcji</h2>\n<!-- /wp:heading -->"
     },
     {
       "name": "core/paragraph",
       "title": "Paragraph",
       "blockType": "hybrid",
       "parent": null,
-      "exampleMarkup": "<!-- wp:core/paragraph -->\n<p class=\"wp-block-core-paragraph\">Tekst akapitu w edytorze blokowym Gutenberg.</p>\n<!-- /wp:core/paragraph -->"
+      "exampleMarkup": "<!-- wp:paragraph -->\n<p class=\"wp-block-paragraph\">Tekst akapitu w edytorze blokowym Gutenberg.</p>\n<!-- /wp:paragraph -->"
     },
     {
       "name": "core/image",
       "title": "Image",
       "blockType": "hybrid",
       "parent": null,
-      "exampleMarkup": "<!-- wp:core/image -->\n<figure class=\"wp-block-core-image\"><img src=\"https://picsum.photos/800/400\" alt=\"Przykładowy obrazek\"/></figure>\n<!-- /wp:core/image -->"
+      "exampleMarkup": "<!-- wp:image -->\n<figure class=\"wp-block-image\"><img src=\"https://picsum.photos/800/400\" alt=\"Przykładowy obrazek\"/></figure>\n<!-- /wp:image -->"
     },
     {
       "name": "core/list",
       "title": "List",
       "blockType": "hybrid",
       "parent": null,
-      "exampleMarkup": "<!-- wp:core/list -->\n<ul class=\"wp-block-core-list\"><!-- wp:list-item -->\n<li>Pierwszy punkt listy</li>\n<!-- /wp:list-item -->\n<!-- wp:list-item -->\n<li>Drugi punkt listy</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:core/list -->"
+      "exampleMarkup": "<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Pierwszy punkt listy</li>\n<!-- /wp:list-item -->\n<!-- wp:list-item -->\n<li>Drugi punkt listy</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->"
     },
     {
       "name": "core/list-item",
@@ -109,32 +109,36 @@
       "parent": [
         "core/list"
       ],
-      "exampleMarkup": "<!-- wp:core/list-item -->\n<li class=\"wp-block-core-list-item\">Element listy</li>\n<!-- /wp:core/list-item -->"
+      "exampleMarkup": "<!-- wp:list-item -->\n<li class=\"wp-block-list-item\">Element listy</li>\n<!-- /wp:list-item -->"
     },
     {
       "name": "core/table",
       "title": "Table",
       "blockType": "static",
       "parent": null,
-      "exampleMarkup": "<!-- wp:core/table -->\n<figure class=\"wp-block-core-table\"><table class=\"has-fixed-layout\"><thead><tr><th>Kolumna 1</th><th>Kolumna 2</th></tr></thead><tbody><tr><td>Wartość A</td><td>Wartość B</td></tr></tbody></table></figure>\n<!-- /wp:core/table -->"
+      "exampleMarkup": "<!-- wp:table -->\n<figure class=\"wp-block-table\"><table class=\"has-fixed-layout\"><thead><tr><th>Kolumna 1</th><th>Kolumna 2</th></tr></thead><tbody><tr><td>Wartość A</td><td>Wartość B</td></tr></tbody></table></figure>\n<!-- /wp:table -->"
     }
   ],
   "woocommerceLayoutBlocks": [
     {
       "name": "woocommerce/product-collection",
       "title": "Product Collection",
-      "blockType": "dynamic",
+      "blockType": "hybrid",
       "parent": null,
       "ancestor": null,
-      "exampleMarkup": "<!-- wp:woocommerce/product-collection /-->"
+      "exampleMarkup": "<!-- wp:woocommerce/product-collection {\"queryId\":0,\"query\":{\"perPage\":4,\"pages\":0,\"offset\":0,\"postType\":\"product\",\"order\":\"desc\",\"orderBy\":\"date\",\"search\":\"\",\"exclude\":[],\"inherit\":false,\"taxQuery\":{},\"isProductCollectionBlock\":true,\"featured\":false,\"woocommerceOnSale\":false,\"woocommerceStockStatus\":[\"instock\",\"onbackorder\"],\"woocommerceAttributes\":[],\"woocommerceHandPickedProducts\":[],\"filterable\":false},\"tagName\":\"div\",\"displayLayout\":{\"type\":\"flex\",\"columns\":4,\"shrinkColumns\":true},\"dimensions\":{\"widthType\":\"fill\"},\"queryContextIncludes\":[\"collection\"],\"forcePageReload\":false} -->\n<div class=\"wp-block-woocommerce-product-collection\">\n  <!-- wp:woocommerce/product-template -->\n  <!-- wp:woocommerce/product-image {\"showSaleBadge\":true,\"isDescendentOfQueryLoop\":true} /-->\n  <!-- wp:post-title {\"textAlign\":\"center\",\"level\":3,\"isLink\":true,\"__woocommerceNamespace\":\"woocommerce/product-collection/product-title\"} /-->\n  <!-- wp:woocommerce/product-price {\"isDescendentOfQueryLoop\":true,\"textAlign\":\"center\"} /-->\n  <!-- wp:woocommerce/product-button {\"isDescendentOfQueryLoop\":true,\"textAlign\":\"center\"} /-->\n  <!-- /wp:woocommerce/product-template -->\n</div>\n<!-- /wp:woocommerce/product-collection -->"
     },
     {
       "name": "woocommerce/product-template",
       "title": "Product Template",
-      "blockType": "dynamic",
-      "parent": null,
-      "ancestor": null,
-      "exampleMarkup": "<!-- wp:woocommerce/product-template /-->"
+      "blockType": "hybrid",
+      "parent": [
+        "woocommerce/product-collection"
+      ],
+      "ancestor": [
+        "woocommerce/product-collection"
+      ],
+      "exampleMarkup": "<!-- wp:woocommerce/product-template -->\n<!-- wp:woocommerce/product-image {\"showSaleBadge\":true,\"isDescendentOfQueryLoop\":true} /-->\n<!-- wp:post-title {\"textAlign\":\"center\",\"level\":3,\"isLink\":true,\"__woocommerceNamespace\":\"woocommerce/product-collection/product-title\"} /-->\n<!-- wp:woocommerce/product-price {\"isDescendentOfQueryLoop\":true,\"textAlign\":\"center\"} /-->\n<!-- wp:woocommerce/product-button {\"isDescendentOfQueryLoop\":true,\"textAlign\":\"center\"} /-->\n<!-- /wp:woocommerce/product-template -->"
     },
     {
       "name": "woocommerce/product-image",
@@ -150,14 +154,15 @@
       "exampleMarkup": "<!-- wp:woocommerce/product-image /-->"
     },
     {
-      "name": "woocommerce/product-title",
-      "title": "Product Title",
+      "name": "core/post-title",
+      "title": "Product Title (Post Title Variation)",
       "blockType": "dynamic",
       "parent": null,
       "ancestor": [
-        "woocommerce/all-products"
+        "woocommerce/product-template",
+        "core/post-template"
       ],
-      "exampleMarkup": "<!-- wp:woocommerce/product-title /-->"
+      "exampleMarkup": "<!-- wp:post-title {\"textAlign\":\"center\",\"level\":3,\"isLink\":true,\"__woocommerceNamespace\":\"woocommerce/product-collection/product-title\"} /-->"
     },
     {
       "name": "woocommerce/product-price",
@@ -353,7 +358,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/accordion -->\n<div class=\"wp-block-core-accordion\"><!-- Treść bloku Accordion --></div>\n<!-- /wp:core/accordion -->"
+      "exampleMarkup": "<!-- wp:accordion -->\n<div class=\"wp-block-accordion\"><!-- Treść bloku Accordion --></div>\n<!-- /wp:accordion -->"
     },
     "core/accordion-heading": {
       "name": "core/accordion-heading",
@@ -459,7 +464,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/accordion-heading -->\n<div class=\"wp-block-core-accordion-heading\"><!-- Treść bloku Accordion Heading --></div>\n<!-- /wp:core/accordion-heading -->"
+      "exampleMarkup": "<!-- wp:accordion-heading -->\n<div class=\"wp-block-accordion-heading\"><!-- Treść bloku Accordion Heading --></div>\n<!-- /wp:accordion-heading -->"
     },
     "core/accordion-item": {
       "name": "core/accordion-item",
@@ -534,7 +539,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/accordion-item -->\n<div class=\"wp-block-core-accordion-item\"><!-- Treść bloku Accordion Item --></div>\n<!-- /wp:core/accordion-item -->"
+      "exampleMarkup": "<!-- wp:accordion-item -->\n<div class=\"wp-block-accordion-item\"><!-- Treść bloku Accordion Item --></div>\n<!-- /wp:accordion-item -->"
     },
     "core/accordion-panel": {
       "name": "core/accordion-panel",
@@ -615,7 +620,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/accordion-panel -->\n<div class=\"wp-block-core-accordion-panel\"><!-- Treść bloku Accordion Panel --></div>\n<!-- /wp:core/accordion-panel -->"
+      "exampleMarkup": "<!-- wp:accordion-panel -->\n<div class=\"wp-block-accordion-panel\"><!-- Treść bloku Accordion Panel --></div>\n<!-- /wp:accordion-panel -->"
     },
     "core/archives": {
       "name": "core/archives",
@@ -706,7 +711,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/archives /-->"
+      "exampleMarkup": "<!-- wp:archives /-->"
     },
     "core/audio": {
       "name": "core/audio",
@@ -800,7 +805,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/audio -->\n<div class=\"wp-block-core-audio\"><!-- Treść bloku Audio --></div>\n<!-- /wp:core/audio -->"
+      "exampleMarkup": "<!-- wp:audio -->\n<div class=\"wp-block-audio\"><!-- Treść bloku Audio --></div>\n<!-- /wp:audio -->"
     },
     "core/avatar": {
       "name": "core/avatar",
@@ -878,7 +883,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/avatar /-->"
+      "exampleMarkup": "<!-- wp:avatar /-->"
     },
     "core/block": {
       "name": "core/block",
@@ -917,7 +922,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/block /-->"
+      "exampleMarkup": "<!-- wp:block /-->"
     },
     "core/breadcrumbs": {
       "name": "core/breadcrumbs",
@@ -1020,7 +1025,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/breadcrumbs /-->"
+      "exampleMarkup": "<!-- wp:breadcrumbs /-->"
     },
     "core/button": {
       "name": "core/button",
@@ -1214,7 +1219,7 @@
         }
       ],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/button -->\n<div class=\"wp-block-core-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"#\">Dowiedz się więcej</a></div>\n<!-- /wp:core/button -->"
+      "exampleMarkup": "<!-- wp:button -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"#\">Dowiedz się więcej</a></div>\n<!-- /wp:button -->"
     },
     "core/buttons": {
       "name": "core/buttons",
@@ -1295,7 +1300,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/buttons {\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\"}} -->\n<div class=\"wp-block-core-buttons\"><!-- wp:button {\"className\":\"is-style-fill\"} -->\n<div class=\"wp-block-button is-style-fill\"><a class=\"wp-block-button__link wp-element-button\" href=\"#\">Główny przycisk</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:core/buttons -->"
+      "exampleMarkup": "<!-- wp:buttons {\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\"}} -->\n<div class=\"wp-block-buttons\"><!-- wp:button {\"className\":\"is-style-fill\"} -->\n<div class=\"wp-block-button is-style-fill\"><a class=\"wp-block-button__link wp-element-button\" href=\"#\">Główny przycisk</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->"
     },
     "core/calendar": {
       "name": "core/calendar",
@@ -1358,7 +1363,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/calendar /-->"
+      "exampleMarkup": "<!-- wp:calendar /-->"
     },
     "core/categories": {
       "name": "core/categories",
@@ -1488,7 +1493,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/categories /-->"
+      "exampleMarkup": "<!-- wp:categories /-->"
     },
     "core/code": {
       "name": "core/code",
@@ -1563,7 +1568,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/code -->\n<pre class=\"wp-block-core-code\"><code>console.log(\"Hello Gutenberg!\");</code></pre>\n<!-- /wp:core/code -->"
+      "exampleMarkup": "<!-- wp:code -->\n<pre class=\"wp-block-code\"><code>console.log(\"Hello Gutenberg!\");</code></pre>\n<!-- /wp:code -->"
     },
     "core/column": {
       "name": "core/column",
@@ -1665,7 +1670,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/column -->\n<div class=\"wp-block-core-column\"><!-- wp:paragraph -->\n<p>Zawartość pojedynczej kolumny.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:core/column -->"
+      "exampleMarkup": "<!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:paragraph -->\n<p>Zawartość pojedynczej kolumny.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column -->"
     },
     "core/columns": {
       "name": "core/columns",
@@ -1787,7 +1792,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/columns -->\n<div class=\"wp-block-core-columns\"><!-- wp:core/column -->\n<div class=\"wp-block-column\"><!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Kolumna 1</h3>\n<!-- /wp:heading --><!-- wp:paragraph -->\n<p>Treść pierwszej kolumny.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:core/column -->\n<!-- wp:core/column -->\n<div class=\"wp-block-column\"><!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Kolumna 2</h3>\n<!-- /wp:heading --><!-- wp:paragraph -->\n<p>Treść drugiej kolumny.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:core/column --></div>\n<!-- /wp:core/columns -->"
+      "exampleMarkup": "<!-- wp:columns -->\n<div class=\"wp-block-columns\"><!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Kolumna 1</h3>\n<!-- /wp:heading --><!-- wp:paragraph -->\n<p>Treść pierwszej kolumny.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column -->\n<!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Kolumna 2</h3>\n<!-- /wp:heading --><!-- wp:paragraph -->\n<p>Treść drugiej kolumny.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->"
     },
     "core/comment-author-avatar": {
       "name": "core/comment-author-avatar",
@@ -1845,7 +1850,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/comment-author-avatar /-->"
+      "exampleMarkup": "<!-- wp:comment-author-avatar /-->"
     },
     "core/comment-author-name": {
       "name": "core/comment-author-name",
@@ -1924,7 +1929,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/comment-author-name /-->"
+      "exampleMarkup": "<!-- wp:comment-author-name /-->"
     },
     "core/comment-content": {
       "name": "core/comment-content",
@@ -1989,7 +1994,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/comment-content /-->"
+      "exampleMarkup": "<!-- wp:comment-content /-->"
     },
     "core/comment-date": {
       "name": "core/comment-date",
@@ -2068,7 +2073,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/comment-date /-->"
+      "exampleMarkup": "<!-- wp:comment-date /-->"
     },
     "core/comment-edit-link": {
       "name": "core/comment-edit-link",
@@ -2137,7 +2142,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/comment-edit-link /-->"
+      "exampleMarkup": "<!-- wp:comment-edit-link /-->"
     },
     "core/comment-reply-link": {
       "name": "core/comment-reply-link",
@@ -2194,7 +2199,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/comment-reply-link /-->"
+      "exampleMarkup": "<!-- wp:comment-reply-link /-->"
     },
     "core/comment-template": {
       "name": "core/comment-template",
@@ -2248,7 +2253,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/comment-template -->\n<div class=\"wp-block-core-comment-template\"><!-- Treść bloku Comment Template --></div>\n<!-- /wp:core/comment-template -->"
+      "exampleMarkup": "<!-- wp:comment-template -->\n<div class=\"wp-block-comment-template\"><!-- Treść bloku Comment Template --></div>\n<!-- /wp:comment-template -->"
     },
     "core/comments": {
       "name": "core/comments",
@@ -2327,7 +2332,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/comments -->\n<div class=\"wp-block-core-comments\"><!-- Treść bloku Comments --></div>\n<!-- /wp:core/comments -->"
+      "exampleMarkup": "<!-- wp:comments -->\n<div class=\"wp-block-comments\"><!-- Treść bloku Comments --></div>\n<!-- /wp:comments -->"
     },
     "core/comments-pagination": {
       "name": "core/comments-pagination",
@@ -2394,7 +2399,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/comments-pagination -->\n<div class=\"wp-block-core-comments-pagination\"><!-- Treść bloku Comments Pagination --></div>\n<!-- /wp:core/comments-pagination -->"
+      "exampleMarkup": "<!-- wp:comments-pagination -->\n<div class=\"wp-block-comments-pagination\"><!-- Treść bloku Comments Pagination --></div>\n<!-- /wp:comments-pagination -->"
     },
     "core/comments-pagination-next": {
       "name": "core/comments-pagination-next",
@@ -2447,7 +2452,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/comments-pagination-next /-->"
+      "exampleMarkup": "<!-- wp:comments-pagination-next /-->"
     },
     "core/comments-pagination-numbers": {
       "name": "core/comments-pagination-numbers",
@@ -2498,7 +2503,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/comments-pagination-numbers /-->"
+      "exampleMarkup": "<!-- wp:comments-pagination-numbers /-->"
     },
     "core/comments-pagination-previous": {
       "name": "core/comments-pagination-previous",
@@ -2551,7 +2556,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/comments-pagination-previous /-->"
+      "exampleMarkup": "<!-- wp:comments-pagination-previous /-->"
     },
     "core/comments-title": {
       "name": "core/comments-title",
@@ -2642,7 +2647,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/comments-title /-->"
+      "exampleMarkup": "<!-- wp:comments-title /-->"
     },
     "core/cover": {
       "name": "core/cover",
@@ -2917,7 +2922,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/cover {\"dimRatio\":50,\"overlayColor\":\"black\",\"minHeight\":400,\"minHeightUnit\":\"px\",\"layout\":{\"type\":\"constrained\"}} -->\n<div class=\"wp-block-core-cover\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-black-background-color has-background-dim-50 has-background-dim\"></span><div class=\"wp-block-cover__inner-container\"><!-- wp:heading {\"textAlign\":\"center\",\"level\":1} -->\n<h1 class=\"wp-block-heading has-text-align-center\">Tytuł Sekcji Hero</h1>\n<!-- /wp:heading --></div></div>\n<!-- /wp:core/cover -->"
+      "exampleMarkup": "<!-- wp:cover {\"dimRatio\":50,\"overlayColor\":\"black\",\"minHeight\":400,\"minHeightUnit\":\"px\",\"layout\":{\"type\":\"constrained\"}} -->\n<div class=\"wp-block-cover\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-black-background-color has-background-dim-50 has-background-dim\"></span><div class=\"wp-block-cover__inner-container\"><!-- wp:heading {\"textAlign\":\"center\",\"level\":1} -->\n<h1 class=\"wp-block-heading has-text-align-center\">Tytuł Sekcji Hero</h1>\n<!-- /wp:heading --></div></div>\n<!-- /wp:cover -->"
     },
     "core/details": {
       "name": "core/details",
@@ -3016,7 +3021,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/details -->\n<div class=\"wp-block-core-details\"><!-- Treść bloku Details --></div>\n<!-- /wp:core/details -->"
+      "exampleMarkup": "<!-- wp:details -->\n<div class=\"wp-block-details\"><!-- Treść bloku Details --></div>\n<!-- /wp:details -->"
     },
     "core/embed": {
       "name": "core/embed",
@@ -3097,7 +3102,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/embed -->\n<div class=\"wp-block-core-embed\"><!-- Treść bloku Embed --></div>\n<!-- /wp:core/embed -->"
+      "exampleMarkup": "<!-- wp:embed -->\n<div class=\"wp-block-embed\"><!-- Treść bloku Embed --></div>\n<!-- /wp:embed -->"
     },
     "core/file": {
       "name": "core/file",
@@ -3230,7 +3235,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/file -->\n<div class=\"wp-block-core-file\"><!-- Treść bloku File --></div>\n<!-- /wp:core/file -->"
+      "exampleMarkup": "<!-- wp:file -->\n<div class=\"wp-block-file\"><!-- Treść bloku File --></div>\n<!-- /wp:file -->"
     },
     "core/footnotes": {
       "name": "core/footnotes",
@@ -3297,7 +3302,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/footnotes /-->"
+      "exampleMarkup": "<!-- wp:footnotes /-->"
     },
     "core/freeform": {
       "name": "core/freeform",
@@ -3325,7 +3330,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/freeform -->\n<div class=\"wp-block-core-freeform\"><!-- Treść bloku Classic --></div>\n<!-- /wp:core/freeform -->"
+      "exampleMarkup": "<!-- wp:freeform -->\n<div class=\"wp-block-freeform\"><!-- Treść bloku Classic --></div>\n<!-- /wp:freeform -->"
     },
     "core/gallery": {
       "name": "core/gallery",
@@ -3518,7 +3523,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/gallery -->\n<div class=\"wp-block-core-gallery\"><!-- Treść bloku Gallery --></div>\n<!-- /wp:core/gallery -->"
+      "exampleMarkup": "<!-- wp:gallery -->\n<div class=\"wp-block-gallery\"><!-- Treść bloku Gallery --></div>\n<!-- /wp:gallery -->"
     },
     "core/group": {
       "name": "core/group",
@@ -3632,7 +3637,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/group {\"layout\":{\"type\":\"constrained\"}} -->\n<div class=\"wp-block-core-group\"><!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\">Tytuł wewnątrz grupy</h2>\n<!-- /wp:heading --><!-- wp:paragraph -->\n<p>Treść kontenera grupy.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:core/group -->"
+      "exampleMarkup": "<!-- wp:group {\"layout\":{\"type\":\"constrained\"}} -->\n<div class=\"wp-block-group\"><!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\">Tytuł wewnątrz grupy</h2>\n<!-- /wp:heading --><!-- wp:paragraph -->\n<p>Treść kontenera grupy.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:group -->"
     },
     "core/heading": {
       "name": "core/heading",
@@ -3731,7 +3736,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/heading -->\n<h2 class=\"wp-block-core-heading\">Przykładowy nagłówek sekcji</h2>\n<!-- /wp:core/heading -->"
+      "exampleMarkup": "<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Przykładowy nagłówek sekcji</h2>\n<!-- /wp:heading -->"
     },
     "core/home-link": {
       "name": "core/home-link",
@@ -3805,7 +3810,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/home-link -->\n<div class=\"wp-block-core-home-link\"><!-- Treść bloku Home Link --></div>\n<!-- /wp:core/home-link -->"
+      "exampleMarkup": "<!-- wp:home-link -->\n<div class=\"wp-block-home-link\"><!-- Treść bloku Home Link --></div>\n<!-- /wp:home-link -->"
     },
     "core/html": {
       "name": "core/html",
@@ -3836,7 +3841,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/html /-->"
+      "exampleMarkup": "<!-- wp:html /-->"
     },
     "core/icon": {
       "name": "core/icon",
@@ -3938,7 +3943,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/icon /-->"
+      "exampleMarkup": "<!-- wp:icon /-->"
     },
     "core/image": {
       "name": "core/image",
@@ -4144,7 +4149,7 @@
         }
       ],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/image -->\n<figure class=\"wp-block-core-image\"><img src=\"https://picsum.photos/800/400\" alt=\"Przykładowy obrazek\"/></figure>\n<!-- /wp:core/image -->"
+      "exampleMarkup": "<!-- wp:image -->\n<figure class=\"wp-block-image\"><img src=\"https://picsum.photos/800/400\" alt=\"Przykładowy obrazek\"/></figure>\n<!-- /wp:image -->"
     },
     "core/latest-comments": {
       "name": "core/latest-comments",
@@ -4229,7 +4234,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/latest-comments /-->"
+      "exampleMarkup": "<!-- wp:latest-comments /-->"
     },
     "core/latest-posts": {
       "name": "core/latest-posts",
@@ -4429,7 +4434,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/latest-posts /-->"
+      "exampleMarkup": "<!-- wp:latest-posts /-->"
     },
     "core/list": {
       "name": "core/list",
@@ -4542,7 +4547,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/list -->\n<ul class=\"wp-block-core-list\"><!-- wp:list-item -->\n<li>Pierwszy punkt listy</li>\n<!-- /wp:list-item -->\n<!-- wp:list-item -->\n<li>Drugi punkt listy</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:core/list -->"
+      "exampleMarkup": "<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Pierwszy punkt listy</li>\n<!-- /wp:list-item -->\n<!-- wp:list-item -->\n<li>Drugi punkt listy</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->"
     },
     "core/list-item": {
       "name": "core/list-item",
@@ -4621,7 +4626,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/list-item -->\n<li class=\"wp-block-core-list-item\">Element listy</li>\n<!-- /wp:core/list-item -->"
+      "exampleMarkup": "<!-- wp:list-item -->\n<li class=\"wp-block-list-item\">Element listy</li>\n<!-- /wp:list-item -->"
     },
     "core/loginout": {
       "name": "core/loginout",
@@ -4692,7 +4697,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/loginout /-->"
+      "exampleMarkup": "<!-- wp:loginout /-->"
     },
     "core/math": {
       "name": "core/math",
@@ -4757,7 +4762,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/math -->\n<div class=\"wp-block-core-math\"><!-- Treść bloku Math --></div>\n<!-- /wp:core/math -->"
+      "exampleMarkup": "<!-- wp:math -->\n<div class=\"wp-block-math\"><!-- Treść bloku Math --></div>\n<!-- /wp:math -->"
     },
     "core/media-text": {
       "name": "core/media-text",
@@ -4974,7 +4979,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/media-text -->\n<div class=\"wp-block-core-media-text\"><!-- Treść bloku Media & Text --></div>\n<!-- /wp:core/media-text -->"
+      "exampleMarkup": "<!-- wp:media-text -->\n<div class=\"wp-block-media-text\"><!-- Treść bloku Media & Text --></div>\n<!-- /wp:media-text -->"
     },
     "core/missing": {
       "name": "core/missing",
@@ -5023,7 +5028,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/missing -->\n<div class=\"wp-block-core-missing\"><!-- Treść bloku Unsupported --></div>\n<!-- /wp:core/missing -->"
+      "exampleMarkup": "<!-- wp:missing -->\n<div class=\"wp-block-missing\"><!-- Treść bloku Unsupported --></div>\n<!-- /wp:missing -->"
     },
     "core/more": {
       "name": "core/more",
@@ -5063,7 +5068,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/more -->\n<div class=\"wp-block-core-more\"><!-- Treść bloku More --></div>\n<!-- /wp:core/more -->"
+      "exampleMarkup": "<!-- wp:more -->\n<div class=\"wp-block-more\"><!-- Treść bloku More --></div>\n<!-- /wp:more -->"
     },
     "core/navigation": {
       "name": "core/navigation",
@@ -5312,7 +5317,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/navigation -->\n<div class=\"wp-block-core-navigation\"><!-- Treść bloku Navigation --></div>\n<!-- /wp:core/navigation -->"
+      "exampleMarkup": "<!-- wp:navigation -->\n<div class=\"wp-block-navigation\"><!-- Treść bloku Navigation --></div>\n<!-- /wp:navigation -->"
     },
     "core/navigation-link": {
       "name": "core/navigation-link",
@@ -5435,7 +5440,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/navigation-link -->\n<div class=\"wp-block-core-navigation-link\"><!-- Treść bloku Navigation Link --></div>\n<!-- /wp:core/navigation-link -->"
+      "exampleMarkup": "<!-- wp:navigation-link -->\n<div class=\"wp-block-navigation-link\"><!-- Treść bloku Navigation Link --></div>\n<!-- /wp:navigation-link -->"
     },
     "core/navigation-overlay-close": {
       "name": "core/navigation-overlay-close",
@@ -5504,7 +5509,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/navigation-overlay-close /-->"
+      "exampleMarkup": "<!-- wp:navigation-overlay-close /-->"
     },
     "core/navigation-submenu": {
       "name": "core/navigation-submenu",
@@ -5630,7 +5635,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/navigation-submenu -->\n<div class=\"wp-block-core-navigation-submenu\"><!-- Treść bloku Submenu --></div>\n<!-- /wp:core/navigation-submenu -->"
+      "exampleMarkup": "<!-- wp:navigation-submenu -->\n<div class=\"wp-block-navigation-submenu\"><!-- Treść bloku Submenu --></div>\n<!-- /wp:navigation-submenu -->"
     },
     "core/nextpage": {
       "name": "core/nextpage",
@@ -5654,7 +5659,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/nextpage -->\n<div class=\"wp-block-core-nextpage\"><!-- Treść bloku Page Break --></div>\n<!-- /wp:core/nextpage -->"
+      "exampleMarkup": "<!-- wp:nextpage -->\n<div class=\"wp-block-nextpage\"><!-- Treść bloku Page Break --></div>\n<!-- /wp:nextpage -->"
     },
     "core/page-list": {
       "name": "core/page-list",
@@ -5725,7 +5730,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/page-list /-->"
+      "exampleMarkup": "<!-- wp:page-list /-->"
     },
     "core/page-list-item": {
       "name": "core/page-list-item",
@@ -5792,7 +5797,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/page-list-item /-->"
+      "exampleMarkup": "<!-- wp:page-list-item /-->"
     },
     "core/paragraph": {
       "name": "core/paragraph",
@@ -5896,7 +5901,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/paragraph -->\n<p class=\"wp-block-core-paragraph\">Tekst akapitu w edytorze blokowym Gutenberg.</p>\n<!-- /wp:core/paragraph -->"
+      "exampleMarkup": "<!-- wp:paragraph -->\n<p class=\"wp-block-paragraph\">Tekst akapitu w edytorze blokowym Gutenberg.</p>\n<!-- /wp:paragraph -->"
     },
     "core/pattern": {
       "name": "core/pattern",
@@ -5926,7 +5931,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/pattern /-->"
+      "exampleMarkup": "<!-- wp:pattern /-->"
     },
     "core/playlist": {
       "name": "core/playlist",
@@ -6095,7 +6100,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/playlist -->\n<div class=\"wp-block-core-playlist\"><!-- Treść bloku Playlist --></div>\n<!-- /wp:core/playlist -->"
+      "exampleMarkup": "<!-- wp:playlist -->\n<div class=\"wp-block-playlist\"><!-- Treść bloku Playlist --></div>\n<!-- /wp:playlist -->"
     },
     "core/playlist-track": {
       "name": "core/playlist-track",
@@ -6199,7 +6204,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/playlist-track /-->"
+      "exampleMarkup": "<!-- wp:playlist-track /-->"
     },
     "core/post-author": {
       "name": "core/post-author",
@@ -6315,7 +6320,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/post-author /-->"
+      "exampleMarkup": "<!-- wp:post-author /-->"
     },
     "core/post-author-biography": {
       "name": "core/post-author-biography",
@@ -6374,7 +6379,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/post-author-biography /-->"
+      "exampleMarkup": "<!-- wp:post-author-biography /-->"
     },
     "core/post-author-name": {
       "name": "core/post-author-name",
@@ -6451,7 +6456,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/post-author-name /-->"
+      "exampleMarkup": "<!-- wp:post-author-name /-->"
     },
     "core/post-comment": {
       "name": "core/post-comment",
@@ -6488,7 +6493,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/post-comment -->\n<div class=\"wp-block-core-post-comment\"><!-- Treść bloku Comment (deprecated) --></div>\n<!-- /wp:core/post-comment -->"
+      "exampleMarkup": "<!-- wp:post-comment -->\n<div class=\"wp-block-post-comment\"><!-- Treść bloku Comment (deprecated) --></div>\n<!-- /wp:post-comment -->"
     },
     "core/post-comments-count": {
       "name": "core/post-comments-count",
@@ -6540,7 +6545,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/post-comments-count /-->"
+      "exampleMarkup": "<!-- wp:post-comments-count /-->"
     },
     "core/post-comments-form": {
       "name": "core/post-comments-form",
@@ -6596,7 +6601,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/post-comments-form /-->"
+      "exampleMarkup": "<!-- wp:post-comments-form /-->"
     },
     "core/post-comments-link": {
       "name": "core/post-comments-link",
@@ -6655,7 +6660,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/post-comments-link /-->"
+      "exampleMarkup": "<!-- wp:post-comments-link /-->"
     },
     "core/post-content": {
       "name": "core/post-content",
@@ -6738,7 +6743,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/post-content /-->"
+      "exampleMarkup": "<!-- wp:post-content /-->"
     },
     "core/post-date": {
       "name": "core/post-date",
@@ -6823,7 +6828,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/post-date /-->"
+      "exampleMarkup": "<!-- wp:post-date /-->"
     },
     "core/post-excerpt": {
       "name": "core/post-excerpt",
@@ -6909,7 +6914,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/post-excerpt /-->"
+      "exampleMarkup": "<!-- wp:post-excerpt /-->"
     },
     "core/post-featured-image": {
       "name": "core/post-featured-image",
@@ -7069,7 +7074,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/post-featured-image /-->"
+      "exampleMarkup": "<!-- wp:post-featured-image /-->"
     },
     "core/post-navigation-link": {
       "name": "core/post-navigation-link",
@@ -7180,7 +7185,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/post-navigation-link /-->"
+      "exampleMarkup": "<!-- wp:post-navigation-link /-->"
     },
     "core/post-template": {
       "name": "core/post-template",
@@ -7250,7 +7255,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/post-template -->\n<div class=\"wp-block-core-post-template\"><!-- Treść bloku Post Template --></div>\n<!-- /wp:core/post-template -->"
+      "exampleMarkup": "<!-- wp:post-template -->\n<div class=\"wp-block-post-template\"><!-- Treść bloku Post Template --></div>\n<!-- /wp:post-template -->"
     },
     "core/post-terms": {
       "name": "core/post-terms",
@@ -7343,7 +7348,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/post-terms /-->"
+      "exampleMarkup": "<!-- wp:post-terms /-->"
     },
     "core/post-time-to-read": {
       "name": "core/post-time-to-read",
@@ -7424,7 +7429,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/post-time-to-read /-->"
+      "exampleMarkup": "<!-- wp:post-time-to-read /-->"
     },
     "core/post-title": {
       "name": "core/post-title",
@@ -7537,7 +7542,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/post-title /-->"
+      "exampleMarkup": "<!-- wp:post-title /-->"
     },
     "core/preformatted": {
       "name": "core/preformatted",
@@ -7603,7 +7608,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/preformatted -->\n<pre class=\"wp-block-core-preformatted\">Preformatted text with   spaces.</pre>\n<!-- /wp:core/preformatted -->"
+      "exampleMarkup": "<!-- wp:preformatted -->\n<pre class=\"wp-block-preformatted\">Preformatted text with   spaces.</pre>\n<!-- /wp:preformatted -->"
     },
     "core/pullquote": {
       "name": "core/pullquote",
@@ -7694,7 +7699,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/pullquote -->\n<figure class=\"wp-block-core-pullquote\"><blockquote><p>Wyróżniony cytat pullquote.</p></blockquote></figure>\n<!-- /wp:core/pullquote -->"
+      "exampleMarkup": "<!-- wp:pullquote -->\n<figure class=\"wp-block-pullquote\"><blockquote><p>Wyróżniony cytat pullquote.</p></blockquote></figure>\n<!-- /wp:pullquote -->"
     },
     "core/query": {
       "name": "core/query",
@@ -7778,7 +7783,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/query -->\n<div class=\"wp-block-core-query\"><!-- Treść bloku Query Loop --></div>\n<!-- /wp:core/query -->"
+      "exampleMarkup": "<!-- wp:query -->\n<div class=\"wp-block-query\"><!-- Treść bloku Query Loop --></div>\n<!-- /wp:query -->"
     },
     "core/query-no-results": {
       "name": "core/query-no-results",
@@ -7836,7 +7841,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/query-no-results -->\n<div class=\"wp-block-core-query-no-results\"><!-- Treść bloku No Results --></div>\n<!-- /wp:core/query-no-results -->"
+      "exampleMarkup": "<!-- wp:query-no-results -->\n<div class=\"wp-block-query-no-results\"><!-- Treść bloku No Results --></div>\n<!-- /wp:query-no-results -->"
     },
     "core/query-pagination": {
       "name": "core/query-pagination",
@@ -7911,7 +7916,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/query-pagination -->\n<div class=\"wp-block-core-query-pagination\"><!-- Treść bloku Pagination --></div>\n<!-- /wp:core/query-pagination -->"
+      "exampleMarkup": "<!-- wp:query-pagination -->\n<div class=\"wp-block-query-pagination\"><!-- Treść bloku Pagination --></div>\n<!-- /wp:query-pagination -->"
     },
     "core/query-pagination-next": {
       "name": "core/query-pagination-next",
@@ -7964,7 +7969,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/query-pagination-next /-->"
+      "exampleMarkup": "<!-- wp:query-pagination-next /-->"
     },
     "core/query-pagination-numbers": {
       "name": "core/query-pagination-numbers",
@@ -8017,7 +8022,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/query-pagination-numbers /-->"
+      "exampleMarkup": "<!-- wp:query-pagination-numbers /-->"
     },
     "core/query-pagination-previous": {
       "name": "core/query-pagination-previous",
@@ -8070,7 +8075,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/query-pagination-previous /-->"
+      "exampleMarkup": "<!-- wp:query-pagination-previous /-->"
     },
     "core/query-title": {
       "name": "core/query-title",
@@ -8173,7 +8178,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/query-title /-->"
+      "exampleMarkup": "<!-- wp:query-title /-->"
     },
     "core/query-total": {
       "name": "core/query-total",
@@ -8245,7 +8250,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/query-total /-->"
+      "exampleMarkup": "<!-- wp:query-total /-->"
     },
     "core/quote": {
       "name": "core/quote",
@@ -8357,7 +8362,7 @@
         }
       ],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/quote -->\n<blockquote class=\"wp-block-core-quote\"><p>Ważny cytat lub sentencja w treści strony.</p><cite>Autor cytatu</cite></blockquote>\n<!-- /wp:core/quote -->"
+      "exampleMarkup": "<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><p>Ważny cytat lub sentencja w treści strony.</p><cite>Autor cytatu</cite></blockquote>\n<!-- /wp:quote -->"
     },
     "core/read-more": {
       "name": "core/read-more",
@@ -8431,7 +8436,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/read-more /-->"
+      "exampleMarkup": "<!-- wp:read-more /-->"
     },
     "core/rss": {
       "name": "core/rss",
@@ -8554,7 +8559,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/rss /-->"
+      "exampleMarkup": "<!-- wp:rss /-->"
     },
     "core/search": {
       "name": "core/search",
@@ -8696,7 +8701,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/search /-->"
+      "exampleMarkup": "<!-- wp:search /-->"
     },
     "core/separator": {
       "name": "core/separator",
@@ -8771,7 +8776,7 @@
         }
       ],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/separator -->\n<hr class=\"wp-block-core-separator\"/>\n<!-- /wp:core/separator -->"
+      "exampleMarkup": "<!-- wp:separator -->\n<hr class=\"wp-block-separator\"/>\n<!-- /wp:separator -->"
     },
     "core/shortcode": {
       "name": "core/shortcode",
@@ -8799,7 +8804,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/shortcode -->\n<div class=\"wp-block-core-shortcode\"><!-- Treść bloku Shortcode --></div>\n<!-- /wp:core/shortcode -->"
+      "exampleMarkup": "<!-- wp:shortcode -->\n<div class=\"wp-block-shortcode\"><!-- Treść bloku Shortcode --></div>\n<!-- /wp:shortcode -->"
     },
     "core/site-logo": {
       "name": "core/site-logo",
@@ -8877,7 +8882,7 @@
         }
       ],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/site-logo /-->"
+      "exampleMarkup": "<!-- wp:site-logo /-->"
     },
     "core/site-tagline": {
       "name": "core/site-tagline",
@@ -8964,7 +8969,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/site-tagline /-->"
+      "exampleMarkup": "<!-- wp:site-tagline /-->"
     },
     "core/site-title": {
       "name": "core/site-title",
@@ -9069,7 +9074,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/site-title /-->"
+      "exampleMarkup": "<!-- wp:site-title /-->"
     },
     "core/social-link": {
       "name": "core/social-link",
@@ -9126,7 +9131,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/social-link /-->"
+      "exampleMarkup": "<!-- wp:social-link /-->"
     },
     "core/social-links": {
       "name": "core/social-links",
@@ -9291,7 +9296,7 @@
         }
       ],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/social-links -->\n<div class=\"wp-block-core-social-links\"><!-- Treść bloku Social Icons --></div>\n<!-- /wp:core/social-links -->"
+      "exampleMarkup": "<!-- wp:social-links -->\n<div class=\"wp-block-social-links\"><!-- Treść bloku Social Icons --></div>\n<!-- /wp:social-links -->"
     },
     "core/spacer": {
       "name": "core/spacer",
@@ -9337,7 +9342,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/spacer {\"height\":\"40px\"} -->\n<div class=\"wp-block-core-spacer\"><div style=\"height:40px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div></div>\n<!-- /wp:core/spacer -->"
+      "exampleMarkup": "<!-- wp:spacer {\"height\":\"40px\"} -->\n<div style=\"height:40px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer -->"
     },
     "core/tab-list": {
       "name": "core/tab-list",
@@ -9406,7 +9411,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/tab-list -->\n<div class=\"wp-block-core-tab-list\"><!-- Treść bloku Tab List --></div>\n<!-- /wp:core/tab-list -->"
+      "exampleMarkup": "<!-- wp:tab-list -->\n<div class=\"wp-block-tab-list\"><!-- Treść bloku Tab List --></div>\n<!-- /wp:tab-list -->"
     },
     "core/tab-panel": {
       "name": "core/tab-panel",
@@ -9471,7 +9476,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/tab-panel -->\n<div class=\"wp-block-core-tab-panel\"><!-- Treść bloku Tab Panel --></div>\n<!-- /wp:core/tab-panel -->"
+      "exampleMarkup": "<!-- wp:tab-panel -->\n<div class=\"wp-block-tab-panel\"><!-- Treść bloku Tab Panel --></div>\n<!-- /wp:tab-panel -->"
     },
     "core/tab-panels": {
       "name": "core/tab-panels",
@@ -9522,7 +9527,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/tab-panels -->\n<div class=\"wp-block-core-tab-panels\"><!-- Treść bloku Tab Panels --></div>\n<!-- /wp:core/tab-panels -->"
+      "exampleMarkup": "<!-- wp:tab-panels -->\n<div class=\"wp-block-tab-panels\"><!-- Treść bloku Tab Panels --></div>\n<!-- /wp:tab-panels -->"
     },
     "core/table": {
       "name": "core/table",
@@ -9634,7 +9639,7 @@
         }
       ],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/table -->\n<figure class=\"wp-block-core-table\"><table class=\"has-fixed-layout\"><thead><tr><th>Kolumna 1</th><th>Kolumna 2</th></tr></thead><tbody><tr><td>Wartość A</td><td>Wartość B</td></tr></tbody></table></figure>\n<!-- /wp:core/table -->"
+      "exampleMarkup": "<!-- wp:table -->\n<figure class=\"wp-block-table\"><table class=\"has-fixed-layout\"><thead><tr><th>Kolumna 1</th><th>Kolumna 2</th></tr></thead><tbody><tr><td>Wartość A</td><td>Wartość B</td></tr></tbody></table></figure>\n<!-- /wp:table -->"
     },
     "core/table-of-contents": {
       "name": "core/table-of-contents",
@@ -9725,7 +9730,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/table-of-contents /-->"
+      "exampleMarkup": "<!-- wp:table-of-contents /-->"
     },
     "core/tabs": {
       "name": "core/tabs",
@@ -9799,7 +9804,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/tabs -->\n<div class=\"wp-block-core-tabs\"><!-- Treść bloku Tabs --></div>\n<!-- /wp:core/tabs -->"
+      "exampleMarkup": "<!-- wp:tabs -->\n<div class=\"wp-block-tabs\"><!-- Treść bloku Tabs --></div>\n<!-- /wp:tabs -->"
     },
     "core/tag-cloud": {
       "name": "core/tag-cloud",
@@ -9905,7 +9910,7 @@
         }
       ],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/tag-cloud /-->"
+      "exampleMarkup": "<!-- wp:tag-cloud /-->"
     },
     "core/template-part": {
       "name": "core/template-part",
@@ -9960,7 +9965,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/template-part /-->"
+      "exampleMarkup": "<!-- wp:template-part /-->"
     },
     "core/term-count": {
       "name": "core/term-count",
@@ -10031,7 +10036,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/term-count /-->"
+      "exampleMarkup": "<!-- wp:term-count /-->"
     },
     "core/term-description": {
       "name": "core/term-description",
@@ -10093,7 +10098,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/term-description /-->"
+      "exampleMarkup": "<!-- wp:term-description /-->"
     },
     "core/term-name": {
       "name": "core/term-name",
@@ -10180,7 +10185,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/term-name /-->"
+      "exampleMarkup": "<!-- wp:term-name /-->"
     },
     "core/term-template": {
       "name": "core/term-template",
@@ -10248,7 +10253,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/term-template -->\n<div class=\"wp-block-core-term-template\"><!-- Treść bloku Term Template --></div>\n<!-- /wp:core/term-template -->"
+      "exampleMarkup": "<!-- wp:term-template -->\n<div class=\"wp-block-term-template\"><!-- Treść bloku Term Template --></div>\n<!-- /wp:term-template -->"
     },
     "core/terms-query": {
       "name": "core/terms-query",
@@ -10298,7 +10303,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/terms-query -->\n<div class=\"wp-block-core-terms-query\"><!-- Treść bloku Terms Query --></div>\n<!-- /wp:core/terms-query -->"
+      "exampleMarkup": "<!-- wp:terms-query -->\n<div class=\"wp-block-terms-query\"><!-- Treść bloku Terms Query --></div>\n<!-- /wp:terms-query -->"
     },
     "core/text-columns": {
       "name": "core/text-columns",
@@ -10346,7 +10351,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/text-columns -->\n<div class=\"wp-block-core-text-columns\"><!-- Treść bloku Text Columns (deprecated) --></div>\n<!-- /wp:core/text-columns -->"
+      "exampleMarkup": "<!-- wp:text-columns -->\n<div class=\"wp-block-text-columns\"><!-- Treść bloku Text Columns (deprecated) --></div>\n<!-- /wp:text-columns -->"
     },
     "core/verse": {
       "name": "core/verse",
@@ -10418,7 +10423,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/verse -->\n<pre class=\"wp-block-core-verse\">Wersy poezji lub tekstu\nz zachowaniem podziału linii</pre>\n<!-- /wp:core/verse -->"
+      "exampleMarkup": "<!-- wp:verse -->\n<pre class=\"wp-block-verse\">Wersy poezji lub tekstu\nz zachowaniem podziału linii</pre>\n<!-- /wp:verse -->"
     },
     "core/video": {
       "name": "core/video",
@@ -10560,7 +10565,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:core/video -->\n<div class=\"wp-block-core-video\"><!-- Treść bloku Video --></div>\n<!-- /wp:core/video -->"
+      "exampleMarkup": "<!-- wp:video -->\n<div class=\"wp-block-video\"><!-- Treść bloku Video --></div>\n<!-- /wp:video -->"
     }
   },
   "allWooCommerceBlocks": {
@@ -16573,7 +16578,7 @@
       "title": "Product Collection",
       "category": "woocommerce",
       "description": "Display a collection of products from your store.",
-      "blockType": "dynamic",
+      "blockType": "hybrid",
       "parent": null,
       "ancestor": null,
       "allowedBlocks": null,
@@ -16588,7 +16593,28 @@
         },
         "query": {
           "type": "object",
-          "default": null,
+          "default": {
+            "perPage": 9,
+            "pages": 0,
+            "offset": 0,
+            "postType": "product",
+            "order": "asc",
+            "orderBy": "title",
+            "search": "",
+            "exclude": [],
+            "inherit": false,
+            "taxQuery": {},
+            "isProductCollectionBlock": true,
+            "featured": false,
+            "woocommerceOnSale": false,
+            "woocommerceStockStatus": [
+              "instock",
+              "onbackorder"
+            ],
+            "woocommerceAttributes": [],
+            "woocommerceHandPickedProducts": [],
+            "filterable": false
+          },
           "enum": null,
           "source": null,
           "selector": null,
@@ -16596,7 +16622,7 @@
         },
         "tagName": {
           "type": "string",
-          "default": null,
+          "default": "div",
           "enum": null,
           "source": null,
           "selector": null,
@@ -16604,15 +16630,37 @@
         },
         "displayLayout": {
           "type": "object",
-          "default": null,
+          "default": {
+            "type": "flex",
+            "columns": 3,
+            "shrinkColumns": true
+          },
           "enum": null,
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "flex",
+                "list",
+                "carousel"
+              ]
+            },
+            "columns": {
+              "type": "number"
+            },
+            "shrinkColumns": {
+              "type": "boolean"
+            }
+          },
           "source": null,
           "selector": null,
           "role": null
         },
         "dimensions": {
           "type": "object",
-          "default": null,
+          "default": {
+            "widthType": "fill"
+          },
           "enum": null,
           "source": null,
           "selector": null,
@@ -16644,7 +16692,9 @@
         },
         "queryContextIncludes": {
           "type": "array",
-          "default": null,
+          "default": [
+            "collection"
+          ],
           "enum": null,
           "source": null,
           "selector": null,
@@ -16679,7 +16729,7 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:woocommerce/product-collection /-->"
+      "exampleMarkup": "<!-- wp:woocommerce/product-collection {\"queryId\":0,\"query\":{\"perPage\":4,\"pages\":0,\"offset\":0,\"postType\":\"product\",\"order\":\"desc\",\"orderBy\":\"date\",\"search\":\"\",\"exclude\":[],\"inherit\":false,\"taxQuery\":{},\"isProductCollectionBlock\":true,\"featured\":false,\"woocommerceOnSale\":false,\"woocommerceStockStatus\":[\"instock\",\"onbackorder\"],\"woocommerceAttributes\":[],\"woocommerceHandPickedProducts\":[],\"filterable\":false},\"tagName\":\"div\",\"displayLayout\":{\"type\":\"flex\",\"columns\":4,\"shrinkColumns\":true},\"dimensions\":{\"widthType\":\"fill\"},\"queryContextIncludes\":[\"collection\"],\"forcePageReload\":false} -->\n<div class=\"wp-block-woocommerce-product-collection\">\n  <!-- wp:woocommerce/product-template -->\n  <!-- wp:woocommerce/product-image {\"showSaleBadge\":true,\"isDescendentOfQueryLoop\":true} /-->\n  <!-- wp:post-title {\"textAlign\":\"center\",\"level\":3,\"isLink\":true,\"__woocommerceNamespace\":\"woocommerce/product-collection/product-title\"} /-->\n  <!-- wp:woocommerce/product-price {\"isDescendentOfQueryLoop\":true,\"textAlign\":\"center\"} /-->\n  <!-- wp:woocommerce/product-button {\"isDescendentOfQueryLoop\":true,\"textAlign\":\"center\"} /-->\n  <!-- /wp:woocommerce/product-template -->\n</div>\n<!-- /wp:woocommerce/product-collection -->"
     },
     "woocommerce/product-collection-no-results": {
       "name": "woocommerce/product-collection-no-results",
@@ -19921,9 +19971,13 @@
       "title": "Product Template",
       "category": "woocommerce",
       "description": "Contains the block elements used to render a product.",
-      "blockType": "dynamic",
-      "parent": null,
-      "ancestor": null,
+      "blockType": "hybrid",
+      "parent": [
+        "woocommerce/product-collection"
+      ],
+      "ancestor": [
+        "woocommerce/product-collection"
+      ],
       "allowedBlocks": null,
       "attributes": {},
       "supports": {
@@ -19967,13 +20021,13 @@
       },
       "styles": [],
       "variations": [],
-      "exampleMarkup": "<!-- wp:woocommerce/product-template /-->"
+      "exampleMarkup": "<!-- wp:woocommerce/product-template -->\n<!-- wp:woocommerce/product-image {\"showSaleBadge\":true,\"isDescendentOfQueryLoop\":true} /-->\n<!-- wp:post-title {\"textAlign\":\"center\",\"level\":3,\"isLink\":true,\"__woocommerceNamespace\":\"woocommerce/product-collection/product-title\"} /-->\n<!-- wp:woocommerce/product-price {\"isDescendentOfQueryLoop\":true,\"textAlign\":\"center\"} /-->\n<!-- wp:woocommerce/product-button {\"isDescendentOfQueryLoop\":true,\"textAlign\":\"center\"} /-->\n<!-- /wp:woocommerce/product-template -->"
     },
     "woocommerce/product-title": {
       "name": "woocommerce/product-title",
       "title": "Product Title",
       "category": "woocommerce-product-elements",
-      "description": "Display the title of a product.",
+      "description": "Legacy block for woocommerce/all-products only (no PHP SSR renderer). Inside woocommerce/product-collection -> woocommerce/product-template, ALWAYS use core/post-title with __woocommerceNamespace: \"woocommerce/product-collection/product-title\".",
       "blockType": "dynamic",
       "parent": null,
       "ancestor": [
